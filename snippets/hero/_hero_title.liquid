@@ -9,7 +9,7 @@
     {% assign hero_bg = default_hero_bg %}
 {% endif %}
 
-<div id="hero" class="relative pt-12 pb-32 jarallax">
+<div id="hero" class="relative pt-32 pb-32 jarallax -mt-24">
   <!-- background parallax -->
   <img class="jarallax-img" src="{{ hero_bg }}" alt="title">
   <!-- background overlay -->
@@ -20,14 +20,14 @@
       <!-- content -->
       <div class="max-w-full w-full lg:w-7/12 px-4">
         <div class="mt-0 pt-6 text-center">
-          <h1 class="text-2xl md:text-3xl leading-normal font-semibold text-white">{{ item.link_text }}</h1>    
+          <h1 class="text-2xl md:text-3xl leading-normal font-semibold text-white">{{ item.link_text }}</h1>
           <hr class="block w-12 h-0.5 mx-auto my-3 bg-secondary border-secondary">
-          <p class="text-gray-200" data-aos="fade-down" data-aos-delay="200">{{ item.settings.description }}</p>    
+          <p class="text-gray-200" data-aos="fade-down" data-aos-delay="200">{{ item.settings.description }}</p>
         </div>
         <div class="container mx-auto justify-center items-center text-center">
             {%# render 'breadcrumb', breadcrumb: item.breadcrumb  %}
         </div>
-        
+
       </div><!-- end content -->
     </div>
   </div>

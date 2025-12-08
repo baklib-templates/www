@@ -5,23 +5,37 @@
 <!-- ========== { HEADER }==========  -->
 <header>
     <!-- Navbar -->
-    <nav x-data="{ open: false }" class="nav-top flex flex-nowrap lg:flex-start items-center z-20 fixed top-0 start-0 end-0 bg-white dark:bg-gray-800 overflow-y-auto max-h-screen lg:overflow-visible lg:max-h-full">
+    <nav
+        x-data="{
+            open: false,
+            scrolled: false,
+            init() {
+                // 监听滚动事件
+                window.addEventListener('scroll', () => {
+                    this.scrolled = window.scrollY > 50;
+                });
+                // 初始化检查
+                this.scrolled = window.scrollY > 50;
+            }
+        }"
+        :class="scrolled ? 'bg-white shadow-md text-gray-800' : 'bg-transparent text-gray-800'"
+        class="nav-top flex flex-nowrap lg:flex-start items-center z-20 fixed top-0 start-0 end-0 transition-all duration-300 ease-in-out overflow-y-auto max-h-screen lg:overflow-visible lg:max-h-full">
         <div class="container mx-auto px-4 xl:max-w-6xl ">
         <!-- mobile navigation -->
         <div class="flex flex-row justify-between py-3 lg:hidden">
             <!-- logo -->
-            <a class="py-2 me-1" href="/">
+            <a class="py-2 me-1 transition-opacity" href="/">
                 {% if site.settings.logo_url %}
-                    <img class="h-12" src="{{ site.settings.logo_url }}" alt="Logo {{ site.name }}">
+                    <img class="h-12 transition-opacity" src="{{ site.settings.logo_url }}" alt="Logo {{ site.name }}">
                 {% else %}
-                    <span class="text-2xl font-semibold dark:text-gray-100"><span class="text-primary-700">{{ site.name }}</span></span>
+                    <span class="text-2xl font-semibold transition-colors" :class="scrolled ? 'text-gray-800' : 'text-white'"><span class="text-primary-700">{{ site.name }}</span></span>
                 {% endif %}
             </a>
 
             <!-- navbar toggler -->
             <div class="end-0 flex items-center">
             <!-- Mobile menu button-->
-            <button id="navbartoggle" type="button" class="inline-flex items-center justify-center text-gray-800 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-300 focus:outline-none focus:ring-0" aria-controls="mobile-menu" @click="open = !open" aria-expanded="false" x-bind:aria-expanded="open.toString()">
+            <button id="navbartoggle" type="button" :class="scrolled ? 'text-gray-800 hover:text-gray-700' : 'text-gray-800 hover:text-gray-200'" class="inline-flex items-center justify-center dark:text-gray-200 dark:hover:text-gray-300 focus:outline-none focus:ring-0 transition-colors" aria-controls="mobile-menu" @click="open = !open" aria-expanded="false" x-bind:aria-expanded="open.toString()">
                 <span class="sr-only">Mobile menu</span>
                 <svg x-description="Icon closed" x-state:on="Menu open" x-state:off="Menu closed" class="block h-8 w-8" :class="{ 'hidden': open, 'block': !(open) }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -38,14 +52,14 @@
         <div class="lg:hidden fixed w-full h-full inset-0 z-40" id="mobile-menu" x-description="Mobile menu" x-show="open" style="display: none;">
             <!-- bg open -->
             <span class="fixed bg-gray-900 bg-opacity-70 w-full h-full inset-x-0 top-0"></span>
-            
+
             <!-- Mobile navbar -->
-            <nav id="mobile-nav" class="flex flex-col end-0 w-64 fixed top-0 py-4 bg-white dark:bg-gray-800 h-full overflow-auto z-40" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" 
-            x-transition:enter="transform transition-transform duration-300" 
-            x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" 
-            x-transition:enter-end="translate-x-0" 
-            x-transition:leave="transform transition-transform duration-300" 
-            x-transition:leave-start="translate-x-0" 
+            <nav id="mobile-nav" class="flex flex-col end-0 w-64 fixed top-0 py-4 bg-white dark:bg-gray-800 h-full overflow-auto z-40" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle"
+            x-transition:enter="transform transition-transform duration-300"
+            x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full"
+            x-transition:enter-end="translate-x-0"
+            x-transition:leave="transform transition-transform duration-300"
+            x-transition:leave-start="translate-x-0"
             x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
             <div class="mb-auto">
 
@@ -103,10 +117,10 @@
                                 {{ parent_menu[0] }}
                                 </a>
                             </li>
-                            
+
                         {% endif %}
                     {% endfor %}
-                    
+
 
                     <li class="relative">
                         <a href="{{ site.settings.request_url}}" target="_blank" class="block py-3 px-4 hover:text-primary-700 focus:text-primary-700 dark:hover:text-gray-100 dark:focus:text-gray-100">{{ site.settings.request_title }}</a>
@@ -125,11 +139,11 @@
         <!-- desktop menu -->
         <div class="hidden lg:flex lg:flex-row lg:flex-nowrap lg:items-center lg:justify-between lg:mt-0" id="desktp-menu">
             <!-- logo -->
-            <a class="hidden lg:flex items-center py-2 me-4 text-xl" href="/">
+            <a class="hidden lg:flex items-center py-2 me-4 text-xl transition-opacity" href="/">
                 {% if site.settings.logo_url %}
-                    <img class="h-12" src="{{ site.settings.logo_url }}" alt="Logo {{ site.name }}">
+                    <img class="h-12 transition-opacity" src="{{ site.settings.logo_url }}" alt="Logo {{ site.name }}">
                 {% else %}
-                    <span class="text-2xl font-semibold dark:text-gray-100"><span class="text-primary-700">{{ site.name }}</span></span>
+                    <span class="text-2xl font-semibold" :class="scrolled ? 'text-gray-800' : 'text-white'"><span class="text-primary-700">{{ site.name }}</span></span>
                 {% endif %}
             </a>
 
@@ -143,7 +157,16 @@
 
                     {% if sub_menus_count > 0 %}
                         <li class="relative flex items-center space-x-1" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                            <a id="dropdown-02" class="group block text-lg py-3 lg:py-7 px-4 hover:text-primary-700 focus:text-primary-700 dark:hover:text-gray-100 dark:focus:text-gray-100" href="javascript:;" :aria-expanded="open" @click.prevent="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :aria-expanded="open" :class="{ 'text-primary-700 dark:text-gray-100': open }">
+                            <a id="dropdown-02"
+                                :class="scrolled ? 'text-gray-800 hover:text-primary-700 focus:text-primary-700' : 'text-white hover:text-gray-200 focus:text-gray-200'"
+                                class="group block text-lg py-3 lg:py-7 px-4 transition-colors dark:hover:text-gray-100 dark:focus:text-gray-100"
+                                href="javascript:;"
+                                :aria-expanded="open"
+                                @click.prevent="open = !open"
+                                aria-haspopup="true"
+                                x-bind:aria-expanded="open"
+                                :aria-expanded="open"
+                                :class="{ 'text-primary-700 dark:text-gray-100': open && scrolled, 'text-white': open && !scrolled }">
                                 <span class="absolute bottom-4 start-1/2 transform ltr:-translate-x-1/2 rtl:translate-x-1/2 w-6 h-0.5 bg-primary-700 transition duration-700 ease-in-out opacity-0 group-hover:opacity-100" :class="{ 'opacity-100': open }"></span>
                                 {{ parent_menu[0] }}
                                 <!-- caret -->
@@ -181,19 +204,26 @@
                         </li>
                     {% else %}
                         <li class="relative">
-                            <a class="group block text-lg py-3 lg:py-7 px-4 hover:text-primary-700 focus:text-primary-700 dark:hover:text-gray-100 dark:focus:text-gray-100" href="{{ parent_menu[1] | default: '#'}}">
+                            <a
+                                :class="scrolled ? 'text-gray-800 hover:text-primary-700 focus:text-primary-700' : 'text-white hover:text-gray-200 focus:text-gray-200'"
+                                class="group block text-lg py-3 lg:py-7 px-4 transition-colors dark:hover:text-gray-100 dark:focus:text-gray-100"
+                                href="{{ parent_menu[1] | default: '#'}}">
                                 <span class="absolute bottom-4 start-1/5 transform ltr:-translate-x-1/2 rtl:translate-x-1/2 w-12 h-0.5 bg-primary-700 transition duration-700 ease-in-out opacity-0 group-hover:opacity-100"></span>
                                 {{ parent_menu[0] }}
                             </a>
                         </li>
-                        
+
                     {% endif %}
                 {% endfor %}
             </ul>
-            
+
             <!-- button -->
             <div class="grid text-center lg:block my-4 lg:my-auto">
-                <a href="{{ site.settings.request_url}}" class="py-2 px-4 text-sm inline-block text-center rounded-md leading-normal text-gray-100 bg-primary-700 border border-primary-700 hover:text-white hover:bg-primary-800 hover:ring-0 hover:border-primary-800 focus:bg-primary-800 focus:border-primary-800 focus:outline-none focus:ring-0" target="_blank" rel="noopener">
+                <a href="{{ site.settings.request_url}}"
+                   :class="scrolled ? 'text-white bg-primary-700 border-primary-700 hover:bg-primary-800 hover:border-primary-800' : 'text-white bg-primary-700/90 backdrop-blur-sm border-primary-700/90 hover:bg-primary-800 hover:border-primary-800'"
+                   class="py-2 px-4 text-sm inline-block text-center rounded-md leading-normal border transition-all hover:ring-0 focus:bg-primary-800 focus:border-primary-800 focus:outline-none focus:ring-0"
+                   target="_blank"
+                   rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 inline me-1">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>

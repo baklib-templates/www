@@ -14,20 +14,21 @@
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     {{ site.settings.head_html }}
-    
+
   </head>
   <body class="pt-20 font-sans text-base font-normal text-gray-700 dark:bg-gray-800 dark:text-gray-300">
 
     {% render 'header' %}
     {{ content_for_layout }}
     {% render 'footer' %}
-    
+
     <!-- plugins js -->
     {{ 'javascripts/plugins/jarallax/dist/jarallax.min.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {{ 'javascripts/plugins/lightgallery.js/dist/js/lightgallery.min.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {{ 'javascripts/plugins/lightgallery.js/demo/js/lg-thumbnail.min.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {{ 'javascripts/plugins/lightgallery.js/demo/js/lg-video.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {{ 'javascripts/plugins/flickity/dist/flickity.pkgd.min.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     {{ 'javascripts/plugins/typed.js/dist/typed.umd.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {{ 'javascripts/plugins/vanilla-lazyload/dist/lazyload.min.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {{ 'javascripts/plugins/hc-sticky/dist/hc-sticky.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
