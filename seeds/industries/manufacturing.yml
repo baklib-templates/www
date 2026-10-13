@@ -1,0 +1,246 @@
+site:
+  settings:
+    slogan: "以可靠品质服务全球客户"
+    request_title: "获取报价"
+    request_url: "/about/contact"
+    brand_logos_on: false
+    cta_title: |
+      <h2>需要产品选型或报价？</h2>
+      <p>提交需求，工程师会根据你的工况推荐合适的产品与方案。</p>
+    company_info: "我们专注工业产品的研发、制造与服务，为客户提供稳定可靠的产品和完整的技术支持。"
+    copyright_info: "© 版权所有"
+pages:
+  name: "首页"
+  slug: "index"
+  template_name: "index"
+  template_style: "sections"
+  settings:
+    hero_title: "可靠的产品，专业的工程服务"
+    hero_description: "从产品选型、定制生产到安装调试与售后，我们为客户提供全生命周期支持。"
+    hero_primary_label: "获取报价"
+    hero_primary_url: "/about/contact"
+    hero_secondary_label: "浏览产品"
+    hero_secondary_url: "/products"
+    hero_image_url: "images/demo/building-600x400.png"
+    section_1_type: "cards"
+    section_1_title: "产品中心"
+    section_1_channel: "/products"
+    section_1_limit: 3
+    section_2_type: "html"
+    section_2_title: "我们的优势"
+    section_2_html: |
+      <div class="wx-grid wx-grid-4">
+        <div class="wx-card"><span class="wx-icon">✓</span><h3>自主研发</h3><p>核心部件自主设计，持续迭代。</p></div>
+        <div class="wx-card"><span class="wx-icon">✓</span><h3>质量体系</h3><p>全流程质量管控，出厂逐台检测。</p></div>
+        <div class="wx-card"><span class="wx-icon">✓</span><h3>定制能力</h3><p>按工况与规格提供定制方案。</p></div>
+        <div class="wx-card"><span class="wx-icon">✓</span><h3>快速服务</h3><p>服务网点覆盖主要区域，响应及时。</p></div>
+      </div>
+    section_3_type: "cards"
+    section_3_title: "行业解决方案"
+    section_3_channel: "/solutions"
+    section_3_limit: 3
+    section_4_type: "html"
+    section_4_title: "从选型到售后"
+    section_4_html: |
+      <ol class="wx-steps">
+        <li class="wx-step"><span class="wx-step-number">1</span><h3>选型咨询</h3><p>根据工况参数推荐合适的产品。</p></li>
+        <li class="wx-step"><span class="wx-step-number">2</span><h3>方案报价</h3><p>确认规格、交期与报价。</p></li>
+        <li class="wx-step"><span class="wx-step-number">3</span><h3>生产交付</h3><p>按订单生产，出厂检测后发货。</p></li>
+        <li class="wx-step"><span class="wx-step-number">4</span><h3>安装与售后</h3><p>安装调试、培训与备件支持。</p></li>
+      </ol>
+    section_5_type: "cards"
+    section_5_title: "客户案例"
+    section_5_channel: "/cases"
+    section_5_limit: 3
+    section_6_type: "latest"
+    section_6_title: "新闻中心"
+    section_6_channel: "/news"
+    section_6_limit: 4
+  children:
+    - name: "产品中心"
+      slug: "products"
+      template_name: "channel"
+      template_style: "list"
+      settings:
+        title: "产品中心"
+        description: "覆盖主要应用场景的标准产品系列，支持定制。"
+        thumb_image_url: "images/demo/product-400x400.png"
+      children:
+        - name: "标准系列"
+          slug: "standard-series"
+          template_name: "page"
+          settings:
+            title: "标准系列"
+            description: "通用工况下的高性价比选择，交期短。"
+            thumb_image_url: "images/demo/product-400x600.png"
+            content: |
+              <h2>产品特点</h2>
+              <ul><li>结构紧凑，安装方便</li><li>运行稳定，维护成本低</li><li>多种规格可选</li></ul>
+              <h2>典型应用</h2><p>适用于一般工业生产线与配套设备。</p>
+        - name: "重载系列"
+          slug: "heavy-duty-series"
+          template_name: "page"
+          settings:
+            title: "重载系列"
+            description: "面向高负荷、连续运行的严苛工况。"
+            thumb_image_url: "images/demo/1-800x600.png"
+            content: |
+              <h2>产品特点</h2>
+              <ul><li>高强度材料与加强结构</li><li>长寿命设计</li><li>支持远程状态监测</li></ul>
+              <h2>典型应用</h2><p>适用于冶金、矿山、港口等重载场景。</p>
+        - name: "定制方案"
+          slug: "custom"
+          template_name: "page"
+          settings:
+            title: "定制方案"
+            description: "根据客户图纸或工况参数进行设计与生产。"
+            thumb_image_url: "images/demo/10-800x600.png"
+            content: |
+              <h2>定制流程</h2>
+              <ol><li>需求与工况确认</li><li>方案设计与评审</li><li>样品试制与测试</li><li>批量生产与交付</li></ol>
+    - name: "解决方案"
+      slug: "solutions"
+      template_name: "channel"
+      settings:
+        title: "解决方案"
+        description: "结合行业工况的整体解决方案。"
+        thumb_image_url: "images/demo/bg-planet.jpg"
+      children:
+        - name: "智能产线升级"
+          slug: "smart-line"
+          template_name: "page"
+          settings:
+            title: "智能产线升级"
+            description: "提升产线自动化水平与稼动率。"
+            thumb_image_url: "images/demo/project_1.jpg"
+            content: |
+              <p>通过设备升级与数据采集，帮助客户实现产线状态可视、故障可预警。</p>
+        - name: "节能改造"
+          slug: "energy-saving"
+          template_name: "page"
+          settings:
+            title: "节能改造"
+            description: "降低能耗，缩短投资回收期。"
+            thumb_image_url: "images/demo/project_2.jpg"
+            content: |
+              <p>评估现有设备能耗，替换高效产品并优化运行策略，典型节能 15% 以上。</p>
+        - name: "售后与备件服务"
+          slug: "service"
+          template_name: "page"
+          settings:
+            title: "售后与备件服务"
+            description: "安装调试、定期巡检与原厂备件。"
+            thumb_image_url: "images/demo/project_3.jpg"
+            content: |
+              <p>提供安装调试、操作培训、定期巡检与备件供应，保障设备长期稳定运行。</p>
+    - name: "客户案例"
+      slug: "cases"
+      template_name: "channel"
+      settings:
+        title: "客户案例"
+        description: "不同行业客户的应用实践。"
+        thumb_image_url: "images/demo/project_4.jpg"
+      children:
+        - name: "某汽车零部件工厂产线改造"
+          slug: "case-auto"
+          template_name: "page"
+          settings:
+            title: "某汽车零部件工厂产线改造"
+            description: "设备故障停机时间下降 40%。"
+            thumb_image_url: "images/demo/project_4.jpg"
+            content: |
+              <h2>客户挑战</h2><p>老旧设备故障频繁，影响交付。</p>
+              <h2>解决方案</h2><p>替换重载系列产品并加装状态监测。</p>
+              <h2>合作成果</h2><p>停机时间下降 40%，年节省维护成本显著。</p>
+        - name: "某港口装卸设备升级"
+          slug: "case-port"
+          template_name: "page"
+          settings:
+            title: "某港口装卸设备升级"
+            description: "连续运行稳定性显著提升。"
+            thumb_image_url: "images/demo/project_5.jpg"
+            content: |
+              <h2>客户挑战</h2><p>高负荷连续作业，设备寿命短。</p>
+              <h2>合作成果</h2><p>平均无故障运行时间提升一倍。</p>
+        - name: "某食品企业节能项目"
+          slug: "case-food"
+          template_name: "page"
+          settings:
+            title: "某食品企业节能项目"
+            description: "整体能耗降低 18%。"
+            thumb_image_url: "images/demo/project_6.jpg"
+            content: |
+              <h2>合作成果</h2><p>通过节能改造，整体能耗降低 18%，投资回收期不到两年。</p>
+    - name: "新闻中心"
+      slug: "news"
+      template_name: "channel"
+      settings:
+        title: "新闻中心"
+        description: "企业动态、展会信息与行业资讯。"
+        thumb_image_url: "images/demo/10-800x600.png"
+      children:
+        - name: "新一代重载系列正式发布"
+          slug: "launch"
+          template_name: "page"
+          settings:
+            title: "新一代重载系列正式发布"
+            description: "寿命更长，能耗更低。"
+            thumb_image_url: "images/demo/bg-hero.jpg"
+            content: |
+              <p>新一代重载系列在材料与结构上全面升级，现已开放订购。</p>
+        - name: "我们将参加年度行业展会"
+          slug: "expo"
+          template_name: "page"
+          settings:
+            title: "我们将参加年度行业展会"
+            description: "欢迎莅临展位交流。"
+            thumb_image_url: "images/demo/10.png"
+            content: |
+              <p>届时将展出最新产品与解决方案，欢迎预约现场交流。</p>
+        - name: "通过质量管理体系复审"
+          slug: "certification"
+          template_name: "page"
+          settings:
+            title: "通过质量管理体系复审"
+            description: "持续保持体系认证。"
+            thumb_image_url: "images/demo/1-600x800.png"
+            content: |
+              <p>公司顺利通过质量管理体系年度复审，持续为客户提供稳定品质。</p>
+    - name: "关于我们"
+      slug: "about"
+      template_name: "channel"
+      template_style: "side"
+      settings:
+        title: "关于我们"
+        description: "公司介绍、资质荣誉与联系方式。"
+        thumb_image_url: "images/demo/building-600x400.png"
+      children:
+        - name: "公司介绍"
+          slug: "company"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "公司介绍"
+            description: "专注工业产品研发与制造。"
+            content: |
+              <p>我们专注工业产品的研发、制造与服务，拥有完整的研发、生产与质量体系。</p>
+        - name: "资质荣誉"
+          slug: "honors"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "资质荣誉"
+            description: "认证与荣誉。"
+            content: |
+              <ul><li>质量管理体系认证</li><li>高新技术企业</li><li>多项产品专利</li></ul>
+        - name: "联系我们"
+          slug: "contact"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "联系我们"
+            description: "销售与服务联系方式。"
+            content: |
+              <p>销售热线：请填写联系电话</p>
+              <p>服务邮箱：请填写联系邮箱</p>
+              <p>工厂地址：请填写工厂地址</p>

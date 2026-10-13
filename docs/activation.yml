@@ -1,0 +1,16 @@
+apply: site_pages
+page_template: page
+ask_path: -/search
+arrangements:
+  - key: original
+    title: 按来源路径
+    description: 按网址路径或文件夹保留原来的层级。
+    rule: original
+  - key: channels
+    title: 按来源分成频道
+    description: 每个顶层目录成为一个频道。
+    rule: top_folder
+  - key: flat
+    title: 全部放在首页下
+    description: 导入的正文都放在首页下面。
+    rule: flat

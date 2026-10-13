@@ -1,0 +1,50 @@
+skill:
+  version: 1
+  preset: www
+  writer: site_pages
+  summary: "企业官网：首页由区块组合，栏目分为服务、案例、新闻、关于等，页头页尾导航来自栏目结构。"
+  home:
+    template: index.sections
+    hero_fields: [hero_title, hero_description, hero_primary_label, hero_secondary_label]
+    slots: 6
+    slot_types: [off, html, latest, cards]
+  navigation:
+    header_menu: true
+    footer_menu: true
+  site_fields: [slogan, company_info, request_title, cta_title]
+  page_types:
+    - template: channel
+      role: "卡片栏目：案例、解决方案、新闻等需要配图列表的内容"
+      writable: [title, description]
+    - template: channel.list
+      role: "列表栏目：服务项目、产品系列"
+      writable: [title, description]
+    - template: channel.side
+      role: "侧栏栏目：关于我们、联系方式等少量说明页"
+      writable: [title, description]
+    - template: page
+      role: "文章：服务、产品、案例、新闻的正文"
+      writable: [title, description, content]
+    - template: page.side
+      role: "侧栏文章：公司介绍、联系我们"
+      writable: [title, description, content]
+  limits:
+    channels: 8
+    pages: 40
+  industries:
+    - key: general
+      label: "通用企业服务"
+      seed: seeds/industries/general.yml
+      keywords: []
+    - key: manufacturing
+      label: "制造与工业"
+      seed: seeds/industries/manufacturing.yml
+      keywords: [制造, 工厂, 设备, 工业, 机械, 零部件, 材料, 生产, 加工, 仪器, 电气, 化工, manufacturing, factory]
+    - key: software
+      label: "软件与互联网"
+      seed: seeds/industries/software.yml
+      keywords: [软件, SaaS, saas, 平台, 系统, App, 应用, 互联网, 数字化, 云, AI, 人工智能, 开发, software]
+    - key: professional_services
+      label: "咨询与专业服务"
+      seed: seeds/industries/professional_services.yml
+      keywords: [咨询, 顾问, 律师, 法律, 财务, 税务, 会计, 审计, 培训, 教育, 人力, 知识产权, consulting]

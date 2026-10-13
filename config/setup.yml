@@ -1,0 +1,15 @@
+setup:
+  version: 1
+  workflow: cms_website
+  preset: www
+  content_target: site_pages
+  page_template: page
+  arrangements: [original]
+  goal_keys: [corporate_website]
+  source_modes: [url, files, empty]
+  default_index_style: sections
+  fields:
+    - { target: site, field_id: name }
+    - { target: site, field_id: language }
+    - { target: setup_attribute, field_id: index_style }
+  extra_checks: []

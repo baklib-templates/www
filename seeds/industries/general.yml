@@ -1,0 +1,219 @@
+site:
+  settings:
+    slogan: "专业、可靠、长期陪伴的业务伙伴"
+    request_title: "联系我们"
+    request_url: "/about/contact"
+    brand_logos_on: false
+    cta_title: |
+      <h2>准备好开始合作了吗？</h2>
+      <p>告诉我们你的需求，顾问会在 1 个工作日内联系你。</p>
+    company_info: "我们为企业客户提供专业产品与服务，帮助客户提升效率、降低成本。"
+    copyright_info: "© 版权所有"
+pages:
+  name: "首页"
+  slug: "index"
+  template_name: "index"
+  template_style: "sections"
+  settings:
+    hero_title: "让业务增长更简单"
+    hero_description: "我们以专业的产品与服务，帮助企业解决关键业务问题，实现可衡量的增长。"
+    hero_primary_label: "联系我们"
+    hero_primary_url: "/about/contact"
+    hero_secondary_label: "了解服务"
+    hero_secondary_url: "/services"
+    hero_image_url: "images/demo/building-600x400.png"
+    section_1_type: "html"
+    section_1_title: "为什么选择我们"
+    section_1_html: |
+      <div class="wx-grid wx-grid-3">
+        <div class="wx-card"><span class="wx-icon">1</span><h3>行业经验</h3><p>长期服务同行业客户，熟悉业务流程与常见难点。</p></div>
+        <div class="wx-card"><span class="wx-icon">2</span><h3>标准化交付</h3><p>需求、方案、实施、验收全过程透明可追踪。</p></div>
+        <div class="wx-card"><span class="wx-icon">3</span><h3>持续服务</h3><p>专属顾问跟进，问题响应及时，合作长期稳定。</p></div>
+      </div>
+    section_2_type: "cards"
+    section_2_title: "核心服务"
+    section_2_channel: "/services"
+    section_2_limit: 3
+    section_3_type: "html"
+    section_3_title: "合作流程"
+    section_3_html: |
+      <ol class="wx-steps">
+        <li class="wx-step"><span class="wx-step-number">1</span><h3>需求沟通</h3><p>了解你的目标、现状与预算。</p></li>
+        <li class="wx-step"><span class="wx-step-number">2</span><h3>方案确认</h3><p>明确范围、周期与交付标准。</p></li>
+        <li class="wx-step"><span class="wx-step-number">3</span><h3>实施交付</h3><p>按计划推进，过程透明可追踪。</p></li>
+        <li class="wx-step"><span class="wx-step-number">4</span><h3>持续服务</h3><p>上线后跟进效果，持续优化。</p></li>
+      </ol>
+    section_4_type: "cards"
+    section_4_title: "客户案例"
+    section_4_channel: "/cases"
+    section_4_limit: 3
+    section_5_type: "latest"
+    section_5_title: "最新动态"
+    section_5_channel: "/news"
+    section_5_limit: 4
+    section_6_type: "html"
+    section_6_title: "常见问题"
+    section_6_html: |
+      <div class="wx-faq">
+        <details><summary>合作一般从哪里开始？</summary><p>先进行一次需求沟通，我们会根据你的目标给出建议方案与报价。</p></details>
+        <details><summary>交付周期多长？</summary><p>标准项目通常 2 到 6 周，复杂项目会在方案阶段给出明确排期。</p></details>
+        <details><summary>上线后如何获得支持？</summary><p>每个客户都有专属顾问，可通过电话、邮件或在线方式联系。</p></details>
+      </div>
+  children:
+    - name: "服务项目"
+      slug: "services"
+      template_name: "channel"
+      template_style: "list"
+      settings:
+        title: "服务项目"
+        description: "围绕客户的关键业务环节，提供可落地的产品与服务。"
+        thumb_image_url: "images/demo/book-600x400.png"
+      children:
+        - name: "咨询与规划"
+          slug: "consulting"
+          template_name: "page"
+          settings:
+            title: "咨询与规划"
+            description: "梳理现状与目标，给出可执行的阶段方案。"
+            thumb_image_url: "images/demo/1-800x600.png"
+            content: |
+              <h2>适合谁</h2>
+              <p>希望明确业务方向、优化流程或启动新项目的团队。</p>
+              <h2>交付内容</h2>
+              <ul><li>现状诊断报告</li><li>目标与指标拆解</li><li>分阶段实施路线图</li></ul>
+        - name: "实施与交付"
+          slug: "delivery"
+          template_name: "page"
+          settings:
+            title: "实施与交付"
+            description: "按计划推进落地，过程透明，结果可验收。"
+            thumb_image_url: "images/demo/10-800x600.png"
+            content: |
+              <h2>服务流程</h2>
+              <ol><li>需求确认与方案评审</li><li>分阶段实施与周报同步</li><li>验收、培训与交接</li></ol>
+              <p>每个阶段都有明确的交付物和验收标准。</p>
+        - name: "运营与支持"
+          slug: "support"
+          template_name: "page"
+          settings:
+            title: "运营与支持"
+            description: "上线后持续优化，保障长期效果。"
+            thumb_image_url: "images/demo/product-400x600.png"
+            content: |
+              <h2>支持方式</h2>
+              <p>专属顾问、定期复盘与问题快速响应，帮助客户把成果持续用好。</p>
+    - name: "客户案例"
+      slug: "cases"
+      template_name: "channel"
+      settings:
+        title: "客户案例"
+        description: "来自不同行业客户的真实合作故事。"
+        thumb_image_url: "images/demo/project_1.jpg"
+      children:
+        - name: "某连锁企业运营效率提升 30%"
+          slug: "case-retail"
+          template_name: "page"
+          settings:
+            title: "某连锁企业运营效率提升 30%"
+            description: "统一门店流程与数据口径，管理成本显著下降。"
+            thumb_image_url: "images/demo/project_2.jpg"
+            content: |
+              <h2>客户挑战</h2><p>门店多、流程不统一，总部难以及时掌握经营情况。</p>
+              <h2>解决方案</h2><p>梳理核心流程，建立统一的数据看板与执行标准。</p>
+              <h2>合作成果</h2><p>运营效率提升 30%，问题发现时间从一周缩短到一天。</p>
+        - name: "某制造企业缩短交付周期"
+          slug: "case-manufacturing"
+          template_name: "page"
+          settings:
+            title: "某制造企业缩短交付周期"
+            description: "打通订单到交付的关键环节，准时交付率明显提高。"
+            thumb_image_url: "images/demo/project_3.jpg"
+            content: |
+              <h2>客户挑战</h2><p>订单信息分散，交付延期频繁。</p>
+              <h2>解决方案</h2><p>建立订单全流程跟踪机制，关键节点自动提醒。</p>
+              <h2>合作成果</h2><p>准时交付率从 82% 提升到 96%。</p>
+        - name: "某服务机构客户满意度提升"
+          slug: "case-service"
+          template_name: "page"
+          settings:
+            title: "某服务机构客户满意度提升"
+            description: "规范服务标准与回访机制，客户口碑持续向好。"
+            thumb_image_url: "images/demo/project_4.jpg"
+            content: |
+              <h2>客户挑战</h2><p>服务质量依赖个人经验，客户反馈不稳定。</p>
+              <h2>解决方案</h2><p>制定服务标准与知识库，建立定期回访。</p>
+              <h2>合作成果</h2><p>客户满意度提升至 95% 以上。</p>
+    - name: "新闻动态"
+      slug: "news"
+      template_name: "channel"
+      settings:
+        title: "新闻动态"
+        description: "公司动态、行业观察与活动信息。"
+        thumb_image_url: "images/demo/10-800x600.png"
+      children:
+        - name: "我们发布新一代服务方案"
+          slug: "new-offering"
+          template_name: "page"
+          settings:
+            title: "我们发布新一代服务方案"
+            description: "围绕客户反馈全面升级，交付更快、体验更好。"
+            thumb_image_url: "images/demo/bg-hero.jpg"
+            content: |
+              <p>新方案在交付流程、服务响应与数据透明度上全面升级，现已向所有客户开放。</p>
+        - name: "行业观察：企业如何降本增效"
+          slug: "industry-insight"
+          template_name: "page"
+          settings:
+            title: "行业观察：企业如何降本增效"
+            description: "从流程、数据与组织三个角度给出实践建议。"
+            thumb_image_url: "images/demo/1-600x800.png"
+            content: |
+              <p>降本增效不是简单压缩预算，而是让流程更顺、数据更准、团队协作更高效。</p>
+        - name: "客户交流会圆满举办"
+          slug: "customer-event"
+          template_name: "page"
+          settings:
+            title: "客户交流会圆满举办"
+            description: "来自多个行业的客户分享了合作经验。"
+            thumb_image_url: "images/demo/10.png"
+            content: |
+              <p>本次交流会围绕业务增长与服务体验展开，现场讨论热烈。</p>
+    - name: "关于我们"
+      slug: "about"
+      template_name: "channel"
+      template_style: "side"
+      settings:
+        title: "关于我们"
+        description: "了解我们的使命、团队与联系方式。"
+        thumb_image_url: "images/demo/bg-planet.jpg"
+      children:
+        - name: "公司介绍"
+          slug: "company"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "公司介绍"
+            description: "我们是谁，以及我们为客户做什么。"
+            content: |
+              <p>我们专注为企业客户提供专业产品与服务，坚持以客户成果为导向。</p>
+              <h2>我们的使命</h2><p>让每一位客户的业务更简单、更高效。</p>
+        - name: "发展历程"
+          slug: "history"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "发展历程"
+            description: "一路走来的重要节点。"
+            content: |
+              <ul><li>创立：组建核心团队，服务首批客户</li><li>成长：服务客户超过 100 家</li><li>今天：覆盖多个行业，持续扩展服务能力</li></ul>
+        - name: "联系我们"
+          slug: "contact"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "联系我们"
+            description: "欢迎通过以下方式与我们取得联系。"
+            content: |
+              <p>电话：请填写联系电话</p>
+              <p>邮箱：请填写联系邮箱</p>
+              <p>地址：请填写公司地址</p>

@@ -1,0 +1,66 @@
+/*
+ * Section kit for templates/index.sections.liquid.
+ * HTML sections written by people or AI may only use the wx-* classes below;
+ * the platform strips every other class, inline style and script.
+ */
+@layer components {
+  .wx-section { @apply py-16 md:py-20 bg-base-100; }
+  .wx-section--muted { @apply bg-base-200; }
+  .wx-container { @apply container xl:max-w-6xl mx-auto px-4; }
+  .wx-header { @apply max-w-3xl mx-auto mb-10 text-center; }
+  .wx-header--split { @apply max-w-none flex flex-wrap items-end justify-between gap-4 text-start; }
+  .wx-eyebrow { @apply text-sm font-semibold tracking-widest uppercase text-primary mb-3; }
+  .wx-title { @apply text-2xl md:text-3xl font-bold leading-snug text-base-content; }
+  .wx-lead { @apply mt-3 text-lg leading-relaxed text-base-content/70; }
+  .wx-text { @apply leading-relaxed text-base-content/80; }
+  .wx-link { @apply text-primary font-medium hover:underline; }
+  .wx-center { @apply text-center; }
+
+  .wx-grid { @apply grid gap-6; }
+  .wx-grid-2 { @apply md:grid-cols-2; }
+  .wx-grid-3 { @apply md:grid-cols-2 lg:grid-cols-3; }
+  .wx-grid-4 { @apply sm:grid-cols-2 lg:grid-cols-4; }
+  .wx-split { @apply grid gap-10 lg:grid-cols-2 items-center; }
+
+  .wx-card { @apply flex flex-col gap-3 p-6 rounded-box bg-base-100 border border-base-300 shadow-sm transition hover:shadow-lg; }
+  .wx-section--muted .wx-card { @apply bg-base-100; }
+  .wx-card--media { @apply p-0 overflow-hidden; }
+  .wx-card--media img { @apply w-full aspect-video object-cover; }
+  .wx-card__body { @apply flex flex-col gap-2 p-5; }
+  .wx-card__title, .wx-card h3 { @apply text-lg font-semibold text-base-content; }
+  .wx-card__text, .wx-card p { @apply text-base-content/70 leading-relaxed; }
+  .wx-icon { @apply inline-flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary text-xl font-bold; }
+
+  .wx-stats { @apply grid gap-6 grid-cols-2 lg:grid-cols-4 text-center; }
+  .wx-stat-value { @apply block text-3xl md:text-4xl font-bold text-primary; }
+  .wx-stat-label { @apply block mt-2 text-base-content/70; }
+
+  .wx-steps { @apply grid gap-6 md:grid-cols-2 lg:grid-cols-4 list-none p-0; }
+  .wx-step { @apply relative p-6 rounded-box border border-base-300 bg-base-100; }
+  .wx-step-number { @apply inline-flex items-center justify-center size-8 mb-3 rounded-full bg-primary text-primary-content text-sm font-bold; }
+
+  .wx-list { @apply space-y-3; }
+  .wx-list li { @apply flex gap-3 items-start text-base-content/80; }
+  .wx-list li::before { content: "✓"; @apply text-primary font-bold; }
+
+  .wx-quote { @apply p-8 rounded-box bg-base-100 border-s-4 border-primary text-lg leading-relaxed text-base-content/80; }
+  .wx-quote cite { @apply block mt-4 text-sm not-italic font-semibold text-base-content; }
+
+  .wx-faq details { @apply border-b border-base-300 py-4; }
+  .wx-faq summary { @apply cursor-pointer font-semibold text-base-content; }
+  .wx-faq details p { @apply mt-3 text-base-content/70 leading-relaxed; }
+
+  .wx-cta { @apply flex flex-col items-center gap-6 p-10 md:p-14 rounded-box text-center bg-gradient-to-r from-primary to-secondary text-primary-content; }
+  .wx-cta h2 { @apply text-2xl md:text-3xl font-semibold; }
+  .wx-cta p { @apply text-lg opacity-85; }
+  .wx-button { @apply btn btn-lg bg-base-100 text-primary border-0 hover:bg-base-200; }
+  .wx-button--primary { @apply btn btn-primary; }
+  .wx-button--ghost { @apply btn btn-outline; }
+  .wx-actions { @apply flex flex-wrap gap-3 justify-center mt-8; }
+
+  .wx-feed { @apply divide-y divide-base-300 border-y border-base-300; }
+  .wx-feed__link { @apply grid gap-1 py-5 md:grid-cols-[8rem_1fr] md:gap-x-6 hover:text-primary; }
+  .wx-feed__date { @apply text-sm text-base-content/60 md:row-span-2; }
+  .wx-feed__title { @apply text-lg font-semibold text-base-content; }
+  .wx-feed__summary { @apply text-base-content/70; }
+}

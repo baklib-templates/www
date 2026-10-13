@@ -3,6 +3,7 @@
 @import "swiper/swiper-bundle.css";
 @import "jarallax/dist/jarallax.min.css";
 @import "./custom.css";
+@import "./sections.css";
 
 /**
  * daisyUI theme strategy: themes: false

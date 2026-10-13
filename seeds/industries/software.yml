@@ -1,0 +1,246 @@
+site:
+  settings:
+    slogan: "让团队更高效的软件产品"
+    request_title: "预约演示"
+    request_url: "/about/contact"
+    brand_logos_on: false
+    cta_title: |
+      <h2>看看它能为你的团队做什么</h2>
+      <p>预约一次 30 分钟的产品演示，我们会结合你的场景讲解。</p>
+    company_info: "我们打造面向企业团队的软件产品，帮助客户简化流程、沉淀数据、提升协作效率。"
+    copyright_info: "© 版权所有"
+pages:
+  name: "首页"
+  slug: "index"
+  template_name: "index"
+  template_style: "sections"
+  settings:
+    hero_title: "一个产品，帮团队把关键工作做好"
+    hero_description: "开箱即用、按需扩展，从小团队到大型企业都能快速上手。"
+    hero_primary_label: "预约演示"
+    hero_primary_url: "/about/contact"
+    hero_secondary_label: "查看功能"
+    hero_secondary_url: "/product"
+    hero_image_url: "images/demo/product-400x600.png"
+    section_1_type: "cards"
+    section_1_title: "核心功能"
+    section_1_channel: "/product"
+    section_1_limit: 3
+    section_2_type: "html"
+    section_2_title: "三步开始使用"
+    section_2_html: |
+      <ol class="wx-steps">
+        <li class="wx-step"><span class="wx-step-number">1</span><h3>注册试用</h3><p>几分钟完成注册，无需安装。</p></li>
+        <li class="wx-step"><span class="wx-step-number">2</span><h3>导入数据</h3><p>支持表格导入与常用系统对接。</p></li>
+        <li class="wx-step"><span class="wx-step-number">3</span><h3>邀请团队</h3><p>按角色分配权限，协作即刻开始。</p></li>
+        <li class="wx-step"><span class="wx-step-number">4</span><h3>持续优化</h3><p>用数据看板跟踪效果，不断改进。</p></li>
+      </ol>
+    section_3_type: "cards"
+    section_3_title: "解决方案"
+    section_3_channel: "/solutions"
+    section_3_limit: 3
+    section_4_type: "html"
+    section_4_html: |
+      <blockquote class="wx-quote">上线两个月，团队每周节省了大量重复沟通的时间，流程也更透明了。<cite>某客户运营负责人</cite></blockquote>
+    section_5_type: "cards"
+    section_5_title: "客户故事"
+    section_5_channel: "/customers"
+    section_5_limit: 3
+    section_6_type: "latest"
+    section_6_title: "博客与更新"
+    section_6_channel: "/blog"
+    section_6_limit: 4
+  children:
+    - name: "产品"
+      slug: "product"
+      template_name: "channel"
+      template_style: "list"
+      settings:
+        title: "产品"
+        description: "了解产品的核心功能与特性。"
+        thumb_image_url: "images/demo/product-400x400.png"
+      children:
+        - name: "流程自动化"
+          slug: "automation"
+          template_name: "page"
+          settings:
+            title: "流程自动化"
+            description: "把重复工作交给系统，减少人工差错。"
+            thumb_image_url: "images/demo/1-800x600.png"
+            content: |
+              <h2>能做什么</h2>
+              <ul><li>可视化配置审批与通知规则</li><li>自动分派任务与提醒</li><li>关键节点留痕可追溯</li></ul>
+        - name: "数据看板"
+          slug: "analytics"
+          template_name: "page"
+          settings:
+            title: "数据看板"
+            description: "关键指标实时可见，决策有据可依。"
+            thumb_image_url: "images/demo/10-800x600.png"
+            content: |
+              <h2>能做什么</h2>
+              <ul><li>拖拽式搭建报表</li><li>按角色查看不同指标</li><li>异常数据自动提醒</li></ul>
+        - name: "开放集成"
+          slug: "integrations"
+          template_name: "page"
+          settings:
+            title: "开放集成"
+            description: "通过 API 与常用系统连接。"
+            thumb_image_url: "images/demo/book-600x400.png"
+            content: |
+              <h2>能做什么</h2>
+              <p>提供开放 API 与 Webhook，可与企业现有的账号、办公与业务系统对接。</p>
+        - name: "安全与合规"
+          slug: "security"
+          template_name: "page"
+          settings:
+            title: "安全与合规"
+            description: "权限、审计与数据保护。"
+            thumb_image_url: "images/demo/building-600x400.png"
+            content: |
+              <h2>安全能力</h2>
+              <ul><li>细粒度权限控制</li><li>操作审计日志</li><li>数据传输与存储加密</li></ul>
+    - name: "解决方案"
+      slug: "solutions"
+      template_name: "channel"
+      settings:
+        title: "解决方案"
+        description: "按团队与行业划分的使用方案。"
+        thumb_image_url: "images/demo/bg-planet.jpg"
+      children:
+        - name: "销售团队"
+          slug: "sales"
+          template_name: "page"
+          settings:
+            title: "销售团队"
+            description: "线索到成交全过程可视。"
+            thumb_image_url: "images/demo/project_1.jpg"
+            content: |
+              <p>统一管理线索、跟进与报价，管理者随时掌握销售进展。</p>
+        - name: "客户服务团队"
+          slug: "service"
+          template_name: "page"
+          settings:
+            title: "客户服务团队"
+            description: "工单流转更快，客户满意度更高。"
+            thumb_image_url: "images/demo/project_2.jpg"
+            content: |
+              <p>多渠道问题统一进入工单，自动分配并跟踪处理时效。</p>
+        - name: "中大型企业"
+          slug: "enterprise"
+          template_name: "page"
+          settings:
+            title: "中大型企业"
+            description: "多组织、多权限与私有化部署。"
+            thumb_image_url: "images/demo/project_3.jpg"
+            content: |
+              <p>支持多组织架构、单点登录与私有化部署，满足企业级管理要求。</p>
+    - name: "客户故事"
+      slug: "customers"
+      template_name: "channel"
+      settings:
+        title: "客户故事"
+        description: "看看其他团队是怎么用的。"
+        thumb_image_url: "images/demo/project_4.jpg"
+      children:
+        - name: "某电商团队客服响应提速一倍"
+          slug: "story-ecommerce"
+          template_name: "page"
+          settings:
+            title: "某电商团队客服响应提速一倍"
+            description: "工单自动分派后，平均响应时间减半。"
+            thumb_image_url: "images/demo/project_4.jpg"
+            content: |
+              <h2>挑战</h2><p>大促期间咨询量激增，响应不及时。</p>
+              <h2>成果</h2><p>平均首次响应时间缩短 50%。</p>
+        - name: "某连锁品牌统一门店流程"
+          slug: "story-retail"
+          template_name: "page"
+          settings:
+            title: "某连锁品牌统一门店流程"
+            description: "上百家门店使用同一套流程。"
+            thumb_image_url: "images/demo/project_5.jpg"
+            content: |
+              <h2>成果</h2><p>门店巡检与问题整改全程在线，总部管理效率显著提升。</p>
+        - name: "某科技公司打通销售与交付"
+          slug: "story-tech"
+          template_name: "page"
+          settings:
+            title: "某科技公司打通销售与交付"
+            description: "从签单到交付的信息不再断档。"
+            thumb_image_url: "images/demo/project_6.jpg"
+            content: |
+              <h2>成果</h2><p>交付启动时间从一周缩短到一天。</p>
+    - name: "博客"
+      slug: "blog"
+      template_name: "channel"
+      settings:
+        title: "博客"
+        description: "产品更新、使用技巧与行业观察。"
+        thumb_image_url: "images/demo/10-800x600.png"
+      children:
+        - name: "产品更新：数据看板全面升级"
+          slug: "release-dashboard"
+          template_name: "page"
+          settings:
+            title: "产品更新：数据看板全面升级"
+            description: "新增多种图表与订阅推送。"
+            thumb_image_url: "images/demo/bg-hero.jpg"
+            content: |
+              <p>本次更新新增多种图表类型，并支持按周订阅报表推送。</p>
+        - name: "五个技巧，让流程配置更顺手"
+          slug: "tips"
+          template_name: "page"
+          settings:
+            title: "五个技巧，让流程配置更顺手"
+            description: "来自客户成功团队的实践建议。"
+            thumb_image_url: "images/demo/1-600x800.png"
+            content: |
+              <p>从模板复用到条件分支，这五个技巧能帮你更快搭好流程。</p>
+        - name: "企业选型软件时该关注什么"
+          slug: "buying-guide"
+          template_name: "page"
+          settings:
+            title: "企业选型软件时该关注什么"
+            description: "功能之外，更要看集成、安全与服务。"
+            thumb_image_url: "images/demo/10.png"
+            content: |
+              <p>选型时除了功能清单，还应评估集成能力、安全合规与长期服务。</p>
+    - name: "关于我们"
+      slug: "about"
+      template_name: "channel"
+      template_style: "side"
+      settings:
+        title: "关于我们"
+        description: "团队、价格与联系方式。"
+        thumb_image_url: "images/demo/building-600x400.png"
+      children:
+        - name: "公司介绍"
+          slug: "company"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "公司介绍"
+            description: "我们为什么做这个产品。"
+            content: |
+              <p>我们相信好的软件应该简单易用，让团队把精力放在真正重要的工作上。</p>
+        - name: "价格方案"
+          slug: "pricing"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "价格方案"
+            description: "按团队规模选择合适的版本。"
+            content: |
+              <ul><li>基础版：适合小团队起步</li><li>专业版：适合成长中的团队</li><li>企业版：适合有定制与私有化需求的企业</li></ul>
+              <p>具体价格请联系我们获取。</p>
+        - name: "联系我们"
+          slug: "contact"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "联系我们"
+            description: "预约演示或咨询购买。"
+            content: |
+              <p>商务邮箱：请填写联系邮箱</p>
+              <p>咨询电话：请填写联系电话</p>

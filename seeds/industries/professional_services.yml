@@ -1,0 +1,207 @@
+site:
+  settings:
+    slogan: "专业团队，值得信赖的顾问"
+    request_title: "预约咨询"
+    request_url: "/about/contact"
+    brand_logos_on: false
+    cta_title: |
+      <h2>和顾问聊聊你的问题</h2>
+      <p>首次咨询免费，我们会给出初步判断与建议。</p>
+    company_info: "我们为企业和个人客户提供专业咨询服务，以严谨、务实的方式解决复杂问题。"
+    copyright_info: "© 版权所有"
+pages:
+  name: "首页"
+  slug: "index"
+  template_name: "index"
+  template_style: "sections"
+  settings:
+    hero_title: "专业判断，帮你做出更好的决定"
+    hero_description: "资深顾问团队，覆盖多个专业领域，为客户提供从诊断到落地的完整服务。"
+    hero_primary_label: "预约咨询"
+    hero_primary_url: "/about/contact"
+    hero_secondary_label: "服务领域"
+    hero_secondary_url: "/services"
+    hero_image_url: "images/demo/bg-planet.jpg"
+    section_1_type: "cards"
+    section_1_title: "服务领域"
+    section_1_channel: "/services"
+    section_1_limit: 3
+    section_2_type: "html"
+    section_2_title: "合作方式"
+    section_2_html: |
+      <ol class="wx-steps">
+        <li class="wx-step"><span class="wx-step-number">1</span><h3>初步沟通</h3><p>了解背景与目标，判断是否适合合作。</p></li>
+        <li class="wx-step"><span class="wx-step-number">2</span><h3>方案与报价</h3><p>明确范围、周期、交付物与费用。</p></li>
+        <li class="wx-step"><span class="wx-step-number">3</span><h3>项目执行</h3><p>顾问团队按计划推进并定期汇报。</p></li>
+        <li class="wx-step"><span class="wx-step-number">4</span><h3>成果交付</h3><p>交付报告与建议，并提供后续支持。</p></li>
+      </ol>
+    section_3_type: "cards"
+    section_3_title: "成功案例"
+    section_3_channel: "/cases"
+    section_3_limit: 3
+    section_4_type: "html"
+    section_4_title: "我们的服务原则"
+    section_4_html: |
+      <ul class="wx-list">
+        <li>独立客观：只给出符合客户利益的专业判断。</li>
+        <li>严格保密：合作前签署保密协议，资料专人管理。</li>
+        <li>结果导向：每个项目都有明确的交付物与验收标准。</li>
+      </ul>
+    section_5_type: "latest"
+    section_5_title: "专业洞察"
+    section_5_channel: "/insights"
+    section_5_limit: 4
+    section_6_type: "html"
+    section_6_title: "常见问题"
+    section_6_html: |
+      <div class="wx-faq">
+        <details><summary>咨询如何收费？</summary><p>按项目范围或顾问工时计费，方案阶段会给出明确报价。</p></details>
+        <details><summary>信息会保密吗？</summary><p>合作前签署保密协议，所有资料严格保密。</p></details>
+        <details><summary>可以远程合作吗？</summary><p>可以，支持线上会议与远程协作，必要时安排现场工作。</p></details>
+      </div>
+  children:
+    - name: "服务领域"
+      slug: "services"
+      template_name: "channel"
+      template_style: "list"
+      settings:
+        title: "服务领域"
+        description: "我们擅长的专业领域。"
+        thumb_image_url: "images/demo/book-600x400.png"
+      children:
+        - name: "战略与管理咨询"
+          slug: "strategy"
+          template_name: "page"
+          settings:
+            title: "战略与管理咨询"
+            description: "明确方向，优化组织与流程。"
+            thumb_image_url: "images/demo/1-800x600.png"
+            content: |
+              <h2>服务内容</h2><ul><li>发展战略规划</li><li>组织与流程优化</li><li>绩效体系设计</li></ul>
+        - name: "财务与税务咨询"
+          slug: "finance"
+          template_name: "page"
+          settings:
+            title: "财务与税务咨询"
+            description: "规范财务管理，合理控制风险。"
+            thumb_image_url: "images/demo/10-800x600.png"
+            content: |
+              <h2>服务内容</h2><ul><li>财务体系建设</li><li>税务合规与筹划</li><li>投融资支持</li></ul>
+        - name: "法律与合规咨询"
+          slug: "legal"
+          template_name: "page"
+          settings:
+            title: "法律与合规咨询"
+            description: "识别风险，保障经营合规。"
+            thumb_image_url: "images/demo/product-400x600.png"
+            content: |
+              <h2>服务内容</h2><ul><li>合同审查</li><li>合规体系建设</li><li>争议解决支持</li></ul>
+    - name: "成功案例"
+      slug: "cases"
+      template_name: "channel"
+      settings:
+        title: "成功案例"
+        description: "我们帮助客户解决过的问题。"
+        thumb_image_url: "images/demo/project_1.jpg"
+      children:
+        - name: "某集团组织架构优化"
+          slug: "case-org"
+          template_name: "page"
+          settings:
+            title: "某集团组织架构优化"
+            description: "管理层级减少，决策效率提升。"
+            thumb_image_url: "images/demo/project_1.jpg"
+            content: |
+              <h2>客户挑战</h2><p>业务扩张后管理链条过长。</p>
+              <h2>成果</h2><p>管理层级由五级减为三级，重大决策周期缩短一半。</p>
+        - name: "某企业税务合规改进"
+          slug: "case-tax"
+          template_name: "page"
+          settings:
+            title: "某企业税务合规改进"
+            description: "建立税务风险自查机制。"
+            thumb_image_url: "images/demo/project_2.jpg"
+            content: |
+              <h2>成果</h2><p>建立常态化自查机制，风险事项提前识别和处理。</p>
+        - name: "某初创公司融资支持"
+          slug: "case-funding"
+          template_name: "page"
+          settings:
+            title: "某初创公司融资支持"
+            description: "完成财务规范与融资材料准备。"
+            thumb_image_url: "images/demo/project_3.jpg"
+            content: |
+              <h2>成果</h2><p>三个月内完成财务规范与融资材料准备，顺利完成新一轮融资。</p>
+    - name: "专业洞察"
+      slug: "insights"
+      template_name: "channel"
+      settings:
+        title: "专业洞察"
+        description: "政策解读、行业分析与实务观点。"
+        thumb_image_url: "images/demo/10-800x600.png"
+      children:
+        - name: "新规解读：企业需要关注的三个变化"
+          slug: "policy"
+          template_name: "page"
+          settings:
+            title: "新规解读：企业需要关注的三个变化"
+            description: "对经营影响最大的条款与应对建议。"
+            thumb_image_url: "images/demo/bg-hero.jpg"
+            content: |
+              <p>本文梳理新规中对企业经营影响最大的三个变化，并给出应对建议。</p>
+        - name: "成长型企业的管理升级路径"
+          slug: "growth"
+          template_name: "page"
+          settings:
+            title: "成长型企业的管理升级路径"
+            description: "从创始人驱动到体系驱动。"
+            thumb_image_url: "images/demo/1-600x800.png"
+            content: |
+              <p>企业规模扩大后，需要从依赖个人转向依靠制度与流程。</p>
+        - name: "合同管理中的常见风险"
+          slug: "contract-risks"
+          template_name: "page"
+          settings:
+            title: "合同管理中的常见风险"
+            description: "五类高频问题及防范方法。"
+            thumb_image_url: "images/demo/10.png"
+            content: |
+              <p>总结合同签订与履行中的五类高频风险，以及简单有效的防范方法。</p>
+    - name: "关于我们"
+      slug: "about"
+      template_name: "channel"
+      template_style: "side"
+      settings:
+        title: "关于我们"
+        description: "团队介绍与联系方式。"
+        thumb_image_url: "images/demo/building-600x400.png"
+      children:
+        - name: "机构介绍"
+          slug: "company"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "机构介绍"
+            description: "我们的专业背景与服务理念。"
+            content: |
+              <p>我们由多位资深专业人士创立，坚持独立、客观、务实的服务理念。</p>
+        - name: "顾问团队"
+          slug: "team"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "顾问团队"
+            description: "核心顾问介绍。"
+            content: |
+              <p>请在此介绍核心顾问的专业背景、资质与擅长领域。</p>
+        - name: "联系我们"
+          slug: "contact"
+          template_name: "page"
+          template_style: "side"
+          settings:
+            title: "联系我们"
+            description: "预约咨询。"
+            content: |
+              <p>咨询电话：请填写联系电话</p>
+              <p>邮箱：请填写联系邮箱</p>
+              <p>地址：请填写办公地址</p>

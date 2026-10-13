@@ -1,0 +1,201 @@
+{% assign hero_image = page.settings.hero_image_url | default: site.settings.default_thumb_url %}
+
+<main id="content">
+  <section id="hero" class="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
+    <div class="container xl:max-w-6xl mx-auto px-4 py-20 lg:py-28">
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <div>
+          {% if site.settings.slogan != blank %}
+            <p class="text-sm font-semibold tracking-widest uppercase text-primary-content/70 mb-4">{{ site.settings.slogan | escape }}</p>
+          {% endif %}
+          <h1 class="text-4xl lg:text-5xl leading-tight font-bold text-primary-content mb-6">{{ page.settings.hero_title | default: site.name | escape }}</h1>
+          {% if page.settings.hero_description != blank %}
+            <p class="text-lg leading-relaxed text-primary-content/85 mb-10">{{ page.settings.hero_description | escape | newline_to_br }}</p>
+          {% endif %}
+          <div class="flex flex-wrap gap-3">
+            {% if page.settings.hero_primary_label != blank %}
+              <a href="{{ page.settings.hero_primary_url | default: site.settings.request_url }}" class="btn btn-lg bg-base-100 text-primary border-0 hover:bg-base-200">{{ page.settings.hero_primary_label | escape }}</a>
+            {% endif %}
+            {% if page.settings.hero_secondary_label != blank %}
+              <a href="{{ page.settings.hero_secondary_url | default: '#sections' }}" class="btn btn-lg btn-outline text-primary-content border-primary-content/60 hover:bg-primary-content/10">{{ page.settings.hero_secondary_label | escape }}</a>
+            {% endif %}
+          </div>
+        </div>
+        {% if hero_image != blank %}
+          <div class="hidden lg:block">
+            <img src="{{ hero_image }}" alt="{{ site.name | escape }}" class="w-full rounded-2xl shadow-2xl object-cover aspect-[4/3]">
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <div id="sections">
+    {% for index in (1..6) %}
+      {% capture type_key %}section_{{ index }}_type{% endcapture %}
+      {% capture title_key %}section_{{ index }}_title{% endcapture %}
+      {% capture description_key %}section_{{ index }}_description{% endcapture %}
+      {% capture channel_key %}section_{{ index }}_channel{% endcapture %}
+      {% capture limit_key %}section_{{ index }}_limit{% endcapture %}
+      {% capture html_key %}section_{{ index }}_html{% endcapture %}
+      {% assign section_type = page.settings[type_key].value | default: 'off' %}
+      {% assign section_title = page.settings[title_key] %}
+      {% assign section_description = page.settings[description_key] %}
+      {% assign section_limit = page.settings[limit_key] | default: 6 | plus: 0 %}
+      {% assign band = forloop.index | modulo: 2 %}
+
+      {% if section_type == 'html' %}
+        {% assign section_html = page.settings[html_key] %}
+        {% if section_html != blank %}
+          <section class="wx-section{% if band == 0 %} wx-section--muted{% endif %}" data-section-type="html">
+            <div class="wx-container">
+              {% if section_title != blank %}
+                <header class="wx-header">
+                  <h2 class="wx-title">{{ section_title | escape }}</h2>
+                  {% if section_description != blank %}<p class="wx-lead">{{ section_description | escape }}</p>{% endif %}
+                </header>
+              {% endif %}
+              {{ section_html }}
+            </div>
+          </section>
+        {% endif %}
+      {% elsif section_type == 'latest' or section_type == 'cards' %}
+        {% assign channel_path = page.settings[channel_key] %}
+        {% assign channel = site.pages[channel_path] %}
+        {% if channel %}
+          {% if section_type == 'latest' %}
+            {% assign items = channel.children_in_list | order_by: '-created_at' | limit: section_limit %}
+          {% else %}
+            {% assign items = channel.children_in_list | limit: section_limit %}
+          {% endif %}
+          {% capture items_html %}
+            {% if section_type == 'latest' %}
+              {% for item in items %}
+                <li class="wx-feed__item">
+                  <a href="{{ item.path }}" class="wx-feed__link">
+                    <span class="wx-feed__date">{{ item.published_at | date: "%Y-%m-%d" }}</span>
+                    <span class="wx-feed__title">{{ item.link_text }}</span>
+                    {% assign summary = item.settings.description | default: item.settings.content | strip_html | truncate: 90 %}
+                    {% if summary != blank %}<span class="wx-feed__summary">{{ summary }}</span>{% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            {% else %}
+              {% for item in items %}
+                <a href="{{ item.path }}" class="wx-card wx-card--media">
+                  <img src="{{ item.settings.thumb_image_url | default: site.settings.default_thumb_url }}" alt="{{ item.link_text | escape }}" loading="lazy">
+                  <span class="wx-card__body">
+                    <span class="wx-card__title">{{ item.link_text }}</span>
+                    {% assign summary = item.settings.description | default: item.settings.content | strip_html | truncate: 80 %}
+                    {% if summary != blank %}<span class="wx-card__text">{{ summary }}</span>{% endif %}
+                  </span>
+                </a>
+              {% endfor %}
+            {% endif %}
+          {% endcapture %}
+          {% assign items_html = items_html | strip %}
+          {% if items_html != blank %}
+            <section class="wx-section{% if band == 0 %} wx-section--muted{% endif %}" data-section-type="{{ section_type }}">
+              <div class="wx-container">
+                <header class="wx-header wx-header--split">
+                  <div>
+                    <h2 class="wx-title">{{ section_title | default: channel.link_text | escape }}</h2>
+                    {% assign lead = section_description | default: channel.settings.description %}
+                    {% if lead != blank %}<p class="wx-lead">{{ lead | escape }}</p>{% endif %}
+                  </div>
+                  <a href="{{ channel.path }}" class="wx-link">{% if site.language == 'en' %}View all{% else %}查看全部{% endif %} →</a>
+                </header>
+                {% if section_type == 'latest' %}
+                  <ul class="wx-feed">{{ items_html }}</ul>
+                {% else %}
+                  <div class="wx-grid wx-grid-3">{{ items_html }}</div>
+                {% endif %}
+              </div>
+            </section>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if site.settings.cta_title != blank %}
+    <section class="wx-section">
+      <div class="wx-container">
+        <div class="wx-cta">
+          {{ site.settings.cta_title }}
+          {% if site.settings.request_title != blank %}
+            <a href="{{ site.settings.request_url }}" class="wx-button">{{ site.settings.request_title | escape }}</a>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+</main>
+
+{% schema %}
+{
+  "name": "t:schema.settings_schema.templates_schema.index.sections.name",
+  "description": "t:schema.settings_schema.templates_schema.index.sections.description",
+  "thumb_url": "images/theme/${lang}/index.jpg",
+  "preview_image_urls": ["images/theme/${lang}/index.jpg"],
+  "sub_page_templates": ["channel", "channel.list", "channel.side", "channel.videos"],
+  "settings": [
+    { "type": "header", "content": "t:schema.settings_schema.templates_schema.index.sections.hero_header" },
+    { "id": "hero_title", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.hero_title", "to_markdown": true },
+    { "id": "hero_description", "type": "textarea", "label": "t:schema.settings_schema.templates_schema.index.sections.hero_description", "to_markdown": true },
+    { "id": "hero_primary_label", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.hero_primary_label" },
+    { "id": "hero_primary_url", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.hero_primary_url" },
+    { "id": "hero_secondary_label", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.hero_secondary_label" },
+    { "id": "hero_secondary_url", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.hero_secondary_url" },
+    { "id": "hero_image_url", "type": "image_picker", "ratio": "4:3", "width": 400, "label": "t:schema.settings_schema.templates_schema.index.sections.hero_image" },
+
+    { "type": "header", "content": "t:schema.settings_schema.templates_schema.index.sections.section_1" },
+    { "id": "section_1_type", "type": "select", "label": "t:schema.settings_schema.templates_schema.index.sections.type", "default": "off", "choices": [{ "label": "t:schema.settings_schema.templates_schema.index.sections.type_off", "value": "off" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_html", "value": "html" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_latest", "value": "latest" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_cards", "value": "cards" }] },
+    { "id": "section_1_title", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.title", "to_markdown": true },
+    { "id": "section_1_description", "type": "textarea", "label": "t:schema.settings_schema.templates_schema.index.sections.description_label", "to_markdown": true },
+    { "id": "section_1_channel", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.channel", "info": "t:schema.settings_schema.templates_schema.index.sections.channel_info" },
+    { "id": "section_1_limit", "type": "number", "min": 1, "max": 12, "step": 1, "default": 6, "label": "t:schema.settings_schema.templates_schema.index.sections.limit" },
+    { "id": "section_1_html", "type": "html", "label": "t:schema.settings_schema.templates_schema.index.sections.html", "info": "t:schema.settings_schema.templates_schema.index.sections.html_info", "to_markdown": true },
+
+    { "type": "header", "content": "t:schema.settings_schema.templates_schema.index.sections.section_2" },
+    { "id": "section_2_type", "type": "select", "label": "t:schema.settings_schema.templates_schema.index.sections.type", "default": "off", "choices": [{ "label": "t:schema.settings_schema.templates_schema.index.sections.type_off", "value": "off" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_html", "value": "html" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_latest", "value": "latest" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_cards", "value": "cards" }] },
+    { "id": "section_2_title", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.title", "to_markdown": true },
+    { "id": "section_2_description", "type": "textarea", "label": "t:schema.settings_schema.templates_schema.index.sections.description_label", "to_markdown": true },
+    { "id": "section_2_channel", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.channel", "info": "t:schema.settings_schema.templates_schema.index.sections.channel_info" },
+    { "id": "section_2_limit", "type": "number", "min": 1, "max": 12, "step": 1, "default": 6, "label": "t:schema.settings_schema.templates_schema.index.sections.limit" },
+    { "id": "section_2_html", "type": "html", "label": "t:schema.settings_schema.templates_schema.index.sections.html", "info": "t:schema.settings_schema.templates_schema.index.sections.html_info", "to_markdown": true },
+
+    { "type": "header", "content": "t:schema.settings_schema.templates_schema.index.sections.section_3" },
+    { "id": "section_3_type", "type": "select", "label": "t:schema.settings_schema.templates_schema.index.sections.type", "default": "off", "choices": [{ "label": "t:schema.settings_schema.templates_schema.index.sections.type_off", "value": "off" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_html", "value": "html" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_latest", "value": "latest" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_cards", "value": "cards" }] },
+    { "id": "section_3_title", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.title", "to_markdown": true },
+    { "id": "section_3_description", "type": "textarea", "label": "t:schema.settings_schema.templates_schema.index.sections.description_label", "to_markdown": true },
+    { "id": "section_3_channel", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.channel", "info": "t:schema.settings_schema.templates_schema.index.sections.channel_info" },
+    { "id": "section_3_limit", "type": "number", "min": 1, "max": 12, "step": 1, "default": 6, "label": "t:schema.settings_schema.templates_schema.index.sections.limit" },
+    { "id": "section_3_html", "type": "html", "label": "t:schema.settings_schema.templates_schema.index.sections.html", "info": "t:schema.settings_schema.templates_schema.index.sections.html_info", "to_markdown": true },
+
+    { "type": "header", "content": "t:schema.settings_schema.templates_schema.index.sections.section_4" },
+    { "id": "section_4_type", "type": "select", "label": "t:schema.settings_schema.templates_schema.index.sections.type", "default": "off", "choices": [{ "label": "t:schema.settings_schema.templates_schema.index.sections.type_off", "value": "off" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_html", "value": "html" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_latest", "value": "latest" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_cards", "value": "cards" }] },
+    { "id": "section_4_title", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.title", "to_markdown": true },
+    { "id": "section_4_description", "type": "textarea", "label": "t:schema.settings_schema.templates_schema.index.sections.description_label", "to_markdown": true },
+    { "id": "section_4_channel", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.channel", "info": "t:schema.settings_schema.templates_schema.index.sections.channel_info" },
+    { "id": "section_4_limit", "type": "number", "min": 1, "max": 12, "step": 1, "default": 6, "label": "t:schema.settings_schema.templates_schema.index.sections.limit" },
+    { "id": "section_4_html", "type": "html", "label": "t:schema.settings_schema.templates_schema.index.sections.html", "info": "t:schema.settings_schema.templates_schema.index.sections.html_info", "to_markdown": true },
+
+    { "type": "header", "content": "t:schema.settings_schema.templates_schema.index.sections.section_5" },
+    { "id": "section_5_type", "type": "select", "label": "t:schema.settings_schema.templates_schema.index.sections.type", "default": "off", "choices": [{ "label": "t:schema.settings_schema.templates_schema.index.sections.type_off", "value": "off" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_html", "value": "html" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_latest", "value": "latest" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_cards", "value": "cards" }] },
+    { "id": "section_5_title", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.title", "to_markdown": true },
+    { "id": "section_5_description", "type": "textarea", "label": "t:schema.settings_schema.templates_schema.index.sections.description_label", "to_markdown": true },
+    { "id": "section_5_channel", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.channel", "info": "t:schema.settings_schema.templates_schema.index.sections.channel_info" },
+    { "id": "section_5_limit", "type": "number", "min": 1, "max": 12, "step": 1, "default": 6, "label": "t:schema.settings_schema.templates_schema.index.sections.limit" },
+    { "id": "section_5_html", "type": "html", "label": "t:schema.settings_schema.templates_schema.index.sections.html", "info": "t:schema.settings_schema.templates_schema.index.sections.html_info", "to_markdown": true },
+
+    { "type": "header", "content": "t:schema.settings_schema.templates_schema.index.sections.section_6" },
+    { "id": "section_6_type", "type": "select", "label": "t:schema.settings_schema.templates_schema.index.sections.type", "default": "off", "choices": [{ "label": "t:schema.settings_schema.templates_schema.index.sections.type_off", "value": "off" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_html", "value": "html" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_latest", "value": "latest" }, { "label": "t:schema.settings_schema.templates_schema.index.sections.type_cards", "value": "cards" }] },
+    { "id": "section_6_title", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.title", "to_markdown": true },
+    { "id": "section_6_description", "type": "textarea", "label": "t:schema.settings_schema.templates_schema.index.sections.description_label", "to_markdown": true },
+    { "id": "section_6_channel", "type": "text", "label": "t:schema.settings_schema.templates_schema.index.sections.channel", "info": "t:schema.settings_schema.templates_schema.index.sections.channel_info" },
+    { "id": "section_6_limit", "type": "number", "min": 1, "max": 12, "step": 1, "default": 6, "label": "t:schema.settings_schema.templates_schema.index.sections.limit" },
+    { "id": "section_6_html", "type": "html", "label": "t:schema.settings_schema.templates_schema.index.sections.html", "info": "t:schema.settings_schema.templates_schema.index.sections.html_info", "to_markdown": true }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,13 @@
+setup_knowledge:
+  version: 1
+  styles:
+    sections:
+      label: 有栏目的企业官网
+      description: 按行业范式生成服务、案例、新闻、关于等栏目，首页由动态区块和 HTML 区块组合。
+      scenario_keys: [corporate_website]
+      suitable_for: [企业与品牌介绍, 产品或服务展示, 持续发布案例与新闻]
+      not_suitable_for: [商品交易与支付, 活动报名管理, 产品手册与帮助中心]
+      content_structure:
+        - 首页使用模板页头页尾，首屏之后是 6 个可选区块：栏目最新内容、栏目卡片或 HTML 区块。
+        - 一级栏目自动生成页头和页脚导航；栏目下的文章就是首页动态区块的数据来源。
+        - 能力边界与写作规范见 docs/skill/SKILL.md，机器可读约束见 docs/skill/manifest.yml。
