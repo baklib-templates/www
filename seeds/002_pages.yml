@@ -2,6 +2,7 @@ pages:
   name: "WWW 企业品牌官网"
   slug: "index"
   template_name: "index"
+  template_style: "web-design"
   settings:
     counter_lines: |
       8年|企业官网与 CMS 实施经验

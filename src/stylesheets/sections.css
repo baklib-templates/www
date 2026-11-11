@@ -64,3 +64,170 @@
   .wx-feed__title { @apply text-lg font-semibold text-base-content; }
   .wx-feed__summary { @apply text-base-content/70; }
 }
+
+/* Native homepage compositions. All geometry is shipped with the theme. */
+.wx-home {
+  --wx-gutter: clamp(1.25rem, 5vw, 4rem);
+  overflow-wrap: anywhere;
+}
+.wx-home-wrap {
+  width: min(100%, 77rem);
+  margin-inline: auto;
+  padding-inline: var(--wx-gutter);
+}
+.wx-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--color-neutral);
+  color: var(--color-neutral-content);
+}
+.wx-hero::before, .wx-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+.wx-hero::before {
+  inset: 0;
+  background: radial-gradient(ellipse at 100% 100%, color-mix(in srgb, var(--color-primary) 54%, transparent), transparent 66%);
+}
+.wx-hero::after {
+  width: clamp(22rem, 55vw, 55rem);
+  aspect-ratio: 1;
+  inset-inline-end: -10%;
+  bottom: -75%;
+  border: 1px solid color-mix(in srgb, currentColor 13%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2.75rem color-mix(in srgb, currentColor 3%, transparent),
+              0 0 0 6.25rem color-mix(in srgb, currentColor 3%, transparent),
+              0 0 0 10rem color-mix(in srgb, currentColor 2%, transparent);
+}
+.wx-hero__layout {
+  display: grid;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-block: clamp(4.25rem, 9vw, 8.5rem);
+}
+.wx-hero__copy { min-width: 0; }
+.wx-hero__slogan {
+  max-width: 55ch;
+  margin-bottom: 1.5rem;
+  font-size: .9375rem;
+  line-height: 1.7;
+  font-weight: 600;
+}
+.wx-hero__slogan::before {
+  display: inline-block;
+  content: "";
+  width: 2.25rem;
+  height: 2px;
+  margin-inline-end: .75rem;
+  vertical-align: middle;
+  background: currentColor;
+}
+.wx-hero h1 {
+  max-width: 20ch;
+  font-size: clamp(2.5rem, 5.6vw, 5.25rem);
+  font-weight: 700;
+  letter-spacing: -.035em;
+  line-height: 1.13;
+  text-wrap: balance;
+}
+.wx-hero__intro {
+  max-width: 56ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1.8;
+}
+.wx-hero__image, .wx-native__image {
+  width: 100%;
+  max-height: 31rem;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: .75rem;
+}
+.wx-home-action, .wx-native__link {
+  display: inline-flex;
+  align-items: center;
+  gap: .9em;
+  min-height: 2.75rem;
+  margin-top: 1.5rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+.wx-home-action {
+  margin-inline-end: .5rem;
+  padding: .65rem 1.25rem;
+  border: 1px solid var(--color-neutral-content);
+  border-radius: .5rem;
+  background: var(--color-neutral-content);
+  color: var(--color-neutral);
+}
+.wx-home-action--quiet {
+  background: transparent;
+  color: inherit;
+  border-color: color-mix(in srgb, currentColor 48%, transparent);
+}
+.wx-home-action:hover, .wx-native__link:hover { text-decoration: underline; }
+.wx-home a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.wx-native { padding-block: clamp(3.25rem, 6.75vw, 6.25rem); }
+.wx-native__layout { display: grid; align-items: start; gap: 1.5rem; }
+.wx-native h2 {
+  max-width: 22ch;
+  font-size: clamp(1.9rem, 3.65vw, 3.5rem);
+  line-height: 1.2;
+  font-weight: 650;
+  letter-spacing: -.03em;
+  text-wrap: balance;
+}
+.wx-native__copy { max-width: 60ch; }
+.wx-native__copy p { font-size: clamp(1.0625rem, 1.45vw, 1.25rem); line-height: 1.85; }
+.wx-native__link {
+  min-height: 2.75rem;
+  border-bottom: 1px solid currentColor;
+  color: var(--color-primary);
+}
+.wx-native__copy > a:first-child { margin-top: 0; }
+.wx-native--feature { border-bottom: 1px solid var(--color-base-300); }
+.wx-native--feature h2 {
+  padding-inline-start: .65em;
+  border-inline-start: .095em solid var(--color-primary);
+}
+.wx-native--spotlight {
+  background: color-mix(in srgb, var(--color-base-100) 91%, var(--color-primary));
+}
+.wx-native--spotlight:not(.wx-native--media) {
+  border: 1px solid var(--color-base-300);
+  background: var(--color-base-200);
+}
+.wx-native--spotlight h2 { max-width: 28ch; }
+.wx-native--spotlight .wx-native__copy { max-width: 61ch; }
+.wx-native--cta {
+  background: var(--color-primary);
+  color: var(--color-primary-content);
+}
+.wx-native--cta .wx-native__layout { justify-items: center; text-align: center; }
+.wx-native--cta .wx-native__link {
+  border: 1px solid currentColor;
+  border-radius: .5rem;
+  color: inherit;
+  padding-inline: 1.2rem;
+}
+@media (min-width: 52rem) {
+  /* Adjacent text-only stories share a row. An unpaired story fills the row. */
+  .wx-home > #sections { display: flex; flex-wrap: wrap; }
+  .wx-home > #sections > section { flex: 0 0 100%; min-width: 0; }
+  .wx-home > #sections > .wx-native--spotlight:not(.wx-native--media) {
+    flex: 1 1 50%;
+    container: wx-story / inline-size;
+  }
+  .wx-hero--media .wx-hero__layout { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+  .wx-native--feature .wx-native__layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 4rem; }
+  .wx-native--media .wx-native__layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(2rem, 6vw, 5rem); }
+  .wx-native--media .wx-native__image { grid-row: 1 / span 2; align-self: center; }
+  .wx-native--media h2 { align-self: end; }
+}
+@container wx-story (min-width: 60rem) {
+  .wx-native__layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); column-gap: 4rem; }
+}

@@ -18,6 +18,7 @@
             <div class="ProseMirror max-w-full overflow-x-auto">
               {{ page.settings.content }}
             </div>
+            {% render 'tag_groups', tags: page.settings.tags %}
             <div class="py-4 w-full max-w-full border-t border-base-300 mt-4">
               {% render 'breadcrumb', breadcrumb: page.breadcrumb, page: page %}
             </div>
@@ -29,8 +30,8 @@
 <!--/ article-->
 {% schema %}
   {
-    "name": "t:settings_schema.templates_schema.page.side.name",
-    "description": "t:settings_schema.templates_schema.page.side.description",
+    "name": "t:schema.settings_schema.templates_schema.page.side.name",
+    "description": "t:schema.settings_schema.templates_schema.page.side.description",
     "thumb_url": "images/theme/${lang}/channel-side.png",
     "preview_image_urls": [
       "images/theme/${lang}/channel-side.png"
@@ -40,19 +41,19 @@
       {
         "id": "title",
         "type": "text",
-        "label": "t:settings_schema.page.settings.title.label",
+        "label": "t:schema.settings_schema.page.settings.title.label",
         "to_markdown": true
       },
       {
         "id": "description",
         "type": "textarea",
-        "label": "t:settings_schema.page.settings.description.label",
+        "label": "t:schema.settings_schema.page.settings.description.label",
         "to_markdown": true
       },
       {
         "id": "content",
         "type": "richtext",
-        "label": "t:settings_schema.page.settings.content.label",
+        "label": "t:schema.settings_schema.page.settings.content.label",
         "to_markdown": true
       },
       {
@@ -60,14 +61,16 @@
         "type": "image_picker",
         "ratio": "3:3",
         "width": 100,
-        "label": "t:settings_schema.templates_schema.page.side.icon_label",
+        "label": "t:schema.settings_schema.templates_schema.page.side.icon_label",
         "to_markdown": true
       },
       {
         "id": "tags",
         "type": "tag_picker",
         "multiple": true,
-        "label": "t:settings_schema.page.settings.tags.label",
+        "label": "t:schema.settings_schema.page.settings.tags.label",
+        "info": "t:schema.settings_schema.page.settings.tags.info",
+        "queryable": true,
         "to_markdown": true
       }
     ]

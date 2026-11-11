@@ -31,7 +31,7 @@
     "recommendations": {
       "color_schemas": {
         "baklib": {
-          "name": "t:recommendations.baklib.name",
+          "name": "t:schema.recommendations.baklib.name",
           "colors": {
             "--theme-color-base-100": "#FFFFFF",
             "--theme-color-base-200": "#F8FAFC",
@@ -76,7 +76,7 @@
           }
         },
         "fashion": {
-          "name": "t:recommendations.fashion.name",
+          "name": "t:schema.recommendations.fashion.name",
           "colors": {
             "--theme-color-base-100": "#FFFFFF",
             "--theme-color-base-200": "#F5F5F5",
@@ -121,7 +121,7 @@
           }
         },
         "old_school": {
-          "name": "t:recommendations.old_school.name",
+          "name": "t:schema.recommendations.old_school.name",
           "colors": {
             "--theme-color-base-100": "#FAF5FF",
             "--theme-color-base-200": "#F3E8FF",
@@ -202,7 +202,7 @@
     }
   },
   {
-    "name": "t:settings_schema.generic.name",
+    "name": "t:schema.settings_schema.generic.name",
     "settings": [
       {
         "id": "logo_url",
@@ -265,8 +265,8 @@
       {
         "id": "lucide_icons",
         "type": "textarea",
-        "label": "t:settings_schema.generic.settings.lucide_icons.label",
-        "info": "t:settings_schema.generic.settings.lucide_icons.info",
+        "label": "t:schema.settings_schema.generic.settings.lucide_icons.label",
+        "info": "t:schema.settings_schema.generic.settings.lucide_icons.info",
         "rows": 12,
         "default": "shopping-cart\nshopping-bag\nstore\ncredit-card\nwallet\nbanknote\nreceipt\ntag\ntags\npercent\ngift\npackage\npackage-check\npackage-open\ntruck\nplane\nship\ncar\nbike\nmap-pin\nmap\nnavigation\nroute\nwarehouse\ncontainer\nclock\ntimer\ncalendar\ncalendar-clock\nmonitor\nlaptop\nsmartphone\ntablet\ntv\nserver\nhard-drive\ncpu\ndatabase\ncloud\ncloud-upload\nwifi\nglobe\nbrain\nsparkles\nbot\ncircuit-board\nmicrochip\nzap\nlightbulb\nmessage-square\nmessages-square\nscan-line\nworkflow\ngit-branch\ngit-commit\ngit-pull-request\ncode\ncode-2\nterminal\nlayers\nlayout-grid\nlayout-template\nsettings\nwrench\npuzzle\nbox\nboxes\nbar-chart-3\nline-chart\npie-chart\ntrending-up\nusers\nuser\nuser-check\nshield\nlock\nkey-round\nmail\nphone\nheadphones\ncamera\nimage\nvideo\nplay\nsearch\nmenu\nx\ncheck\nchevron-right\nchevron-left\narrow-right\narrow-left\nplus\nminus\ninfo\ncircle-alert\ntriangle-alert\ncircle-check\ncircle-x\nthumbs-up"
       }
@@ -311,10 +311,10 @@
       {
         "id": "head_html",
         "type": "html",
-        "label": "t:settings_schema.nav.settings.head_html.label",
-        "info": "t:settings_schema.nav.settings.head_html.info",
+        "label": "t:schema.settings_schema.nav.settings.head_html.label",
+        "info": "t:schema.settings_schema.nav.settings.head_html.info",
         "rows": 10,
-        "placeholder": "t:settings_schema.nav.settings.head_html.placeholder"
+        "placeholder": "t:schema.settings_schema.nav.settings.head_html.placeholder"
       },
       {
         "id": "header_menu",
@@ -343,6 +343,37 @@
         "type": "html",
         "label": "页脚版权信息",
         "default": "Copyright © Baklib Inc. | All rights reserved."
+      }
+    ]
+  },
+  {
+    "name": "t:schema.settings_schema.weixin_share.title",
+    "settings": [
+      {
+        "id": "weixin_app_id",
+        "type": "text",
+        "label": "t:schema.settings_schema.weixin_share.weixin_app_id.label",
+        "info": "t:schema.settings_schema.weixin_share.weixin_app_id.info"
+      },
+      {
+        "id": "weixin_app_secret",
+        "type": "text",
+        "label": "t:schema.settings_schema.weixin_share.weixin_app_secret.label",
+        "info": "t:schema.settings_schema.weixin_share.weixin_app_secret.info"
+      },
+      {
+        "id": "weixin_enabled",
+        "type": "checkbox",
+        "label": "t:schema.settings_schema.weixin_share.weixin_enabled.label",
+        "default": false,
+        "info": "t:schema.settings_schema.weixin_share.weixin_enabled.info"
+      },
+      {
+        "id": "weixin_debug",
+        "type": "checkbox",
+        "label": "t:schema.settings_schema.weixin_share.weixin_debug.label",
+        "default": false,
+        "info": "t:schema.settings_schema.weixin_share.weixin_debug.info"
       }
     ]
   }

@@ -1,0 +1,66 @@
+{%# Newsletter 组件 style 3（来源：statics/snippets/newsletter.liquid） %}
+<!-- Newsletter start -->
+<div id="newsletter" class="relative py-20 md:py-24 bg-base-200" style="background-image: url('../src/img/bg/email-pattern.png');background-repeat: repeat;">
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <div class="flex flex-wrap flex-row -mx-4 justify-center">
+      <div class="flex-shrink max-w-full px-4 w-10/12 lg:w-1/2 lg:order-2">
+        <h2 class="text-3xl text-base-content leading-normal font-bold mb-4">How to Grow <span>Your Business</span></h2>
+        <p class="text-base-content/70 leading-relaxed font-light text-xl mx-auto pb-2">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </p>
+        <ul class="text-base-content/70 leading-relaxed font-light text-xl mx-auto pb-2 mb-12 lg:mb-2">
+          <li class="py-2">
+            <svg class="bi bi-check-circle text-success me-3 inline-block" width="1.2rem" height="1.2rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3-3a.5.5 0 11.708-.708L8 9.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+              <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1013.5 8a.5.5 0 011 0 6.5 6.5 0 11-3.25-5.63.5.5 0 11-.5.865A5.472 5.472 0 008 2.5z" clip-rule="evenodd"></path>
+            </svg>Business Plan
+          </li>
+          <li class="py-2">
+            <svg class="bi bi-check-circle text-success me-3 inline-block" width="1.2rem" height="1.2rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3-3a.5.5 0 11.708-.708L8 9.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+              <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1013.5 8a.5.5 0 011 0 6.5 6.5 0 11-3.25-5.63.5.5 0 11-.5.865A5.472 5.472 0 008 2.5z" clip-rule="evenodd"></path>
+            </svg>Financial Strategy
+          </li>
+          <li class="py-2">
+            <svg class="bi bi-check-circle text-success me-3 inline-block" width="1.2rem" height="1.2rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3-3a.5.5 0 11.708-.708L8 9.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+              <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1013.5 8a.5.5 0 011 0 6.5 6.5 0 11-3.25-5.63.5.5 0 11-.5.865A5.472 5.472 0 008 2.5z" clip-rule="evenodd"></path>
+            </svg>Loan and Taxs
+          </li>
+          <li class="py-2">
+            <svg class="bi bi-check-circle text-success me-3 inline-block" width="1.2rem" height="1.2rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3-3a.5.5 0 11.708-.708L8 9.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+              <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1013.5 8a.5.5 0 011 0 6.5 6.5 0 11-3.25-5.63.5.5 0 11-.5.865A5.472 5.472 0 008 2.5z" clip-rule="evenodd"></path>
+            </svg>Sales and Marketing
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex-shrink max-w-full w-full lg:w-1/2 lg:order-1 px-12 md:px-24 lg:px-0">
+        <!-- Card -->
+        <div class="p-6 md:p-12 rounded shadow lg:mx-16 bg-base-100">
+          <div class="text-center mb-6">
+            <h3 class="text-2xl leading-normal font-bold mb-0">Subcribe!</h3>
+          </div>
+          <!-- Form -->
+          <form>
+            <div class="mb-4">
+              <input type="text" class="w-full leading-5 relative py-3 px-5 rounded text-base-content bg-base-100 border border-base-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0" id="Name" aria-label="name" placeholder="Name" required>
+            </div>
+            <div class="mb-4">
+              <input type="email" class="w-full leading-5 relative py-3 px-5 rounded text-base-content bg-base-100 border border-base-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0" id="Email" aria-label="email" placeholder="Email" required>
+            </div>
+            <div class="mb-4">
+              <input type="password" class="w-full leading-5 relative py-3 px-5 rounded text-base-content bg-base-100 border border-base-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0" id="Password" aria-label="password" placeholder="Password" required>
+            </div>
+            <div class="grid mb-6">
+              <button class="py-3 px-5 inline-block text-center rounded-md leading-normal text-primary-content bg-primary border border-primary hover:text-primary-content hover:bg-primary hover:ring-0 hover:border-primary focus:bg-primary focus:border-primary focus:outline-none focus:ring-0" type="submit">
+                Subcribe Newsletter
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- End newsletter -->

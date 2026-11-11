@@ -45,19 +45,9 @@
           {{ page.settings.content }}
         </article>
 
-        <div class="flex justify-between">
+        <div>
           <!--Tags-->
-          {% assign tags_count = page.settings.tags | size %}
-          {% if tags_count > 0 %}
-            <div class="flex items-center py-4 mt-4 space-x-2 text-xs font-light md:mt-8 shrink-0">
-                <p>{{ 'generic.tags' | t }}： </p>
-                {% for tag in page.settings.tags %}
-                    <a href="{{ tag.path }}" style="background-color: {{ tag.color }}" class="px-2 py-1 text-neutral-content rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2">
-                    {{ tag.name }}
-                    </a>
-                {% endfor %}
-            </div>
-          {% endif %}
+          {% render 'tag_groups', tags: page.settings.tags %}
 
           <!-- Feedback -->
           <div class="max-w-2xl mx-auto mt-8">
@@ -76,8 +66,8 @@
 <!--/ article-->
 {% schema %}
   {
-    "name": "t:settings_schema.templates_schema.page.video.name",
-    "description": "t:settings_schema.templates_schema.page.video.description",
+    "name": "t:schema.settings_schema.templates_schema.page.video.name",
+    "description": "t:schema.settings_schema.templates_schema.page.video.description",
     "thumb_url": "images/theme/${lang}/page.png",
     "preview_image_urls": [
       "images/theme/${lang}/page.png"
@@ -86,29 +76,29 @@
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.templates_schema.page.video.youtube_header"
+        "content": "t:schema.settings_schema.templates_schema.page.video.youtube_header"
       },
       {
         "type": "paragraph",
-        "content": "t:settings_schema.templates_schema.page.video.youtube_paragraph"
+        "content": "t:schema.settings_schema.templates_schema.page.video.youtube_paragraph"
       },
       {
         "id": "youtube_id",
         "type": "text",
         "placeholder": "6c3RXM7lK20",
-        "label": "t:settings_schema.templates_schema.page.video.youtube_id_label",
-        "info": "t:settings_schema.templates_schema.page.video.youtube_id_info"
+        "label": "t:schema.settings_schema.templates_schema.page.video.youtube_id_label",
+        "info": "t:schema.settings_schema.templates_schema.page.video.youtube_id_info"
       },
       {
         "type": "header",
-        "content": "t:settings_schema.templates_schema.page.video.local_video_header"
+        "content": "t:schema.settings_schema.templates_schema.page.video.local_video_header"
       },
       {
         "id": "thumb_image_url",
         "type": "image_picker",
         "ratio": "16:9",
         "width": 200,
-        "label": "t:settings_schema.page.settings.thumb_image_url.label",
+        "label": "t:schema.settings_schema.page.settings.thumb_image_url.label",
         "to_markdown": true
       },
       {
@@ -116,36 +106,38 @@
         "type": "video_picker",
         "ratio": "16:9",
         "width": 200,
-        "label": "t:settings_schema.templates_schema.page.video.video_url_label",
-        "info": "t:settings_schema.templates_schema.page.video.video_url_info"
+        "label": "t:schema.settings_schema.templates_schema.page.video.video_url_label",
+        "info": "t:schema.settings_schema.templates_schema.page.video.video_url_info"
       },
       {
         "type": "header",
-        "content": "t:settings_schema.templates_schema.page.video.basic_info_header"
+        "content": "t:schema.settings_schema.templates_schema.page.video.basic_info_header"
       },
       {
         "id": "title",
         "type": "text",
-        "label": "t:settings_schema.page.settings.title.label",
+        "label": "t:schema.settings_schema.page.settings.title.label",
         "to_markdown": true
       },
       {
         "id": "description",
         "type": "textarea",
-        "label": "t:settings_schema.page.settings.description.label",
+        "label": "t:schema.settings_schema.page.settings.description.label",
         "to_markdown": true
       },
       {
         "id": "content",
         "type": "richtext",
-        "label": "t:settings_schema.page.settings.content.label",
+        "label": "t:schema.settings_schema.page.settings.content.label",
         "to_markdown": true
       },
       {
         "id": "tags",
         "type": "tag_picker",
         "multiple": true,
-        "label": "t:settings_schema.page.settings.tags.label",
+        "label": "t:schema.settings_schema.page.settings.tags.label",
+        "info": "t:schema.settings_schema.page.settings.tags.info",
+        "queryable": true,
         "to_markdown": true
       }
     ]

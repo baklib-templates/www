@@ -1,4 +1,5 @@
-{% assign default_logo = 'images/logo.png' | asset_url %}
+{% assign request_title = site.settings.request_title | strip %}
+{% assign request_url = site.settings.request_url | strip %}
 {% assign header_menus = site.settings.header_menu | newline_to_br | split: '<br />' %}
 
 
@@ -108,9 +109,11 @@
                     {% endfor %}
                     
 
-                    <li class="relative">
-                        <a href="{{ site.settings.request_url}}" target="_blank" class="block py-3 px-4 hover:text-primary focus:text-primary hover:text-base-content dark:focus:text-primary-content">{{ site.settings.request_title }}</a>
-                    </li>
+                    {% if request_url != blank and request_title != blank %}
+                        <li class="relative">
+                            <a href="{{ request_url | escape_once }}" target="_blank" rel="noopener" class="block py-3 px-4 hover:text-primary focus:text-primary hover:text-base-content dark:focus:text-primary-content">{{ request_title | escape_once }}</a>
+                        </li>
+                    {% endif %}
                     </ul>
                 </nav>
                 </div>
@@ -192,14 +195,16 @@
             </ul>
             
             <!-- button -->
-            <div class="grid text-center lg:block my-4 lg:my-auto">
-                <a href="{{ site.settings.request_url}}" class="py-2 px-4 text-sm inline-block text-center rounded-md leading-normal text-primary-content bg-primary border border-primary hover:text-primary-content hover:bg-primary hover:ring-0 hover:border-primary focus:bg-primary focus:border-primary focus:outline-none focus:ring-0" target="_blank" rel="noopener">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 inline me-1">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                    </svg>
-                    {{ site.settings.request_title }}
-                </a>
-            </div>
+            {% if request_url != blank and request_title != blank %}
+                <div class="grid text-center lg:block my-4 lg:my-auto">
+                    <a href="{{ request_url | escape_once }}" class="py-2 px-4 text-sm inline-block text-center rounded-md leading-normal text-primary-content bg-primary border border-primary hover:text-primary-content hover:bg-primary hover:ring-0 hover:border-primary focus:bg-primary focus:border-primary focus:outline-none focus:ring-0" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 inline me-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
+                        {{ request_title | escape_once }}
+                    </a>
+                </div>
+            {% endif %}
         </div><!-- end desktop menu -->
         </div>
     </nav><!-- End Navbar -->

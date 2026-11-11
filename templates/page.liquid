@@ -74,9 +74,7 @@
             <!-- Comments -->
             <!-- Feedback -->
             <div class="mx-auto mt-2 max-w-4xl">
-              {% for tag in page.settings.tags %}
-                {% render 'tag', tag: tag %}
-              {% endfor %}
+              {% render 'tag_groups', tags: page.settings.tags %}
               {%# render "feedback_form", page: page %}
               {% render "feedback_btn", page: page %}
             </div>
@@ -96,26 +94,100 @@
       "images/theme/${lang}/page.png"
     ],
     "sub_page_templates": ["page"],
+    "context_schema": {
+      "key": "www",
+      "label": "t:schema.context_schema.label",
+      "version": 1,
+      "content_types": [
+        {
+          "key": "page",
+          "label": "t:schema.context_schema.types.page.label",
+          "templates": [
+            "page",
+            "page.side"
+          ],
+          "fields": [
+            {
+              "key": "topics",
+              "label": "t:schema.context_schema.types.page.fields.topics.label",
+              "type": "tags",
+              "policy": "ai_auto"
+            },
+            {
+              "key": "summary",
+              "label": "t:schema.context_schema.types.page.fields.summary.label",
+              "type": "textarea",
+              "policy": "ai_suggest"
+            },
+            {
+              "key": "audience",
+              "label": "t:schema.context_schema.types.page.fields.audience.label",
+              "type": "text",
+              "policy": "ai_suggest"
+            }
+          ],
+          "relations": [
+            {
+              "type": "related_to",
+              "label": "t:schema.context_schema.types.page.relations.related_to.label",
+              "inverse": "related_to",
+              "cardinality": "many",
+              "policy": "suggest"
+            }
+          ]
+        },
+        {
+          "key": "video",
+          "label": "t:schema.context_schema.types.video.label",
+          "templates": [
+            "page.video"
+          ],
+          "fields": [
+            {
+              "key": "topics",
+              "label": "t:schema.context_schema.types.video.fields.topics.label",
+              "type": "tags",
+              "policy": "ai_auto"
+            },
+            {
+              "key": "summary",
+              "label": "t:schema.context_schema.types.video.fields.summary.label",
+              "type": "textarea",
+              "policy": "ai_suggest"
+            }
+          ],
+          "relations": [
+            {
+              "type": "related_to",
+              "label": "t:schema.context_schema.types.video.relations.related_to.label",
+              "inverse": "related_to",
+              "cardinality": "many",
+              "policy": "suggest"
+            }
+          ]
+        }
+      ]
+    },
     "settings": [
       {
         "id": "title",
         "type": "text",
         "placeholder": "",
-        "label": "t:settings_schema.page.settings.title.label",
-        "info": "t:settings_schema.page.settings.title.info",
+        "label": "t:schema.settings_schema.page.settings.title.label",
+        "info": "t:schema.settings_schema.page.settings.title.info",
         "to_markdown": true
       },
       {
         "id": "description",
         "type": "textarea",
-        "label": "t:settings_schema.page.settings.description.label",
+        "label": "t:schema.settings_schema.page.settings.description.label",
         "to_markdown": true
       },
       {
         "id": "icon",
         "type": "select",
-        "label": "t:settings_schema.page.settings.icon.label",
-        "info": "t:settings_schema.page.settings.icon.info",
+        "label": "t:schema.settings_schema.page.settings.icon.label",
+        "info": "t:schema.settings_schema.page.settings.icon.info",
         "choices_from": "$site.lucide_icons",
         "include_blank": true
       },
@@ -124,20 +196,22 @@
         "type": "image_picker",
         "ratio": "4:3",
         "width": 200,
-        "label": "t:settings_schema.page.settings.thumb_image_url.label",
+        "label": "t:schema.settings_schema.page.settings.thumb_image_url.label",
         "to_markdown": true
       },
       {
         "id": "content",
         "type": "richtext",
-        "label": "t:settings_schema.page.settings.content.label",
+        "label": "t:schema.settings_schema.page.settings.content.label",
         "to_markdown": true
       },
       {
         "id": "tags",
         "type": "tag_picker",
         "multiple": true,
-        "label": "t:settings_schema.page.settings.tags.label",
+        "label": "t:schema.settings_schema.page.settings.tags.label",
+        "info": "t:schema.settings_schema.page.settings.tags.info",
+        "queryable": true,
         "to_markdown": true
       }
     ]

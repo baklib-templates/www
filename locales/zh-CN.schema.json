@@ -1,4 +1,44 @@
 {
+  "context_schema": {
+    "label": "官网页面",
+    "types": {
+      "page": {
+        "label": "介绍页",
+        "fields": {
+          "topics": {
+            "label": "主题"
+          },
+          "summary": {
+            "label": "页面摘要"
+          },
+          "audience": {
+            "label": "面向读者"
+          }
+        },
+        "relations": {
+          "related_to": {
+            "label": "相关页面"
+          }
+        }
+      },
+      "video": {
+        "label": "视频页",
+        "fields": {
+          "topics": {
+            "label": "视频主题"
+          },
+          "summary": {
+            "label": "视频说明"
+          }
+        },
+        "relations": {
+          "related_to": {
+            "label": "相关视频"
+          }
+        }
+      }
+    }
+  },
   "recommendations": {
     "baklib": {
       "name": "科技蓝（企业）"
@@ -32,13 +72,13 @@
           "label": "版权备案信息",
           "placeholder": "蜀ICP备15035023号"
         },
-        "is_allow_feedback":{
+        "is_allow_feedback": {
           "label": "是否展示用户反馈"
         },
-        "is_allow_header":{
+        "is_allow_header": {
           "label": "是否展示页头Header部分"
         },
-        "is_allow_footer":{
+        "is_allow_footer": {
           "label": "是否展示页脚Footer部分"
         },
         "lucide_icons": {
@@ -69,27 +109,28 @@
     "page": {
       "name": "文章页面",
       "settings": {
-        "title":{
+        "title": {
           "label": "标题",
           "info": "显示在正文上方的文章标题"
         },
-        "description":{
+        "description": {
           "label": "摘要"
         },
-        "tags":{
-          "label": "标签"
+        "tags": {
+          "label": "分组标签",
+          "info": "从站点的标签组和层级中选择标签，已有未分组标签仍可使用；前台按组展示，并显示标签的上级路径。"
         },
         "icon": {
           "label": "图标",
           "info": "Lucide 图标名称，用于服务卡片等展示"
         },
-        "thumb_image_url":{
+        "thumb_image_url": {
           "label": "封面图"
         },
         "background_cover_image": {
           "label": "背景封面图"
         },
-        "content":{
+        "content": {
           "label": "页面内容"
         }
       }
@@ -146,6 +187,39 @@
           "html_content_paragraph": "一些 HTML 定制内容",
           "section_image_label": "内容背景图片",
           "html_content_label": "HTML 内容"
+        },
+        "sections": {
+          "name": "Index.Sections",
+          "description": "区块组合首页：页头页尾与栏目导航来自站点，首页由动态区块和 HTML 区块组合",
+          "hero_header": "首屏",
+          "hero_title": "首屏标题",
+          "hero_description": "首屏介绍",
+          "hero_primary_label": "主按钮文字",
+          "hero_primary_url": "主按钮链接（留空使用导航按钮链接）",
+          "hero_secondary_label": "次按钮文字",
+          "hero_secondary_url": "次按钮链接",
+          "hero_image": "首屏配图",
+          "type": "区块类型",
+          "type_off": "不显示",
+          "type_feature": "编辑式介绍",
+          "type_spotlight": "重点展示",
+          "type_cta": "行动邀请",
+          "type_html": "HTML 区块",
+          "type_latest": "栏目最新内容",
+          "type_cards": "栏目卡片",
+          "title": "区块标题",
+          "description_label": "区块说明",
+          "channel": "读取的栏目路径",
+          "channel_info": "列表填写有已发布子页的栏目路径（如 /news）。介绍、重点展示和行动邀请可以填写目标页路径以显示链接。",
+          "limit": "展示数量",
+          "html": "区块 HTML",
+          "html_info": "仅支持 wx- 开头的区块样式类，脚本和内联样式会被移除",
+          "section_1": "区块 1",
+          "section_2": "区块 2",
+          "section_3": "区块 3",
+          "section_4": "区块 4",
+          "section_5": "区块 5",
+          "section_6": "区块 6"
         }
       },
       "page": {
@@ -166,6 +240,25 @@
           "description": "page.side: 与上一级栏目关联的侧边栏导航页面",
           "icon_label": "ICON 图标"
         }
+      }
+    },
+    "weixin_share": {
+      "title": "微信配置",
+      "weixin_app_id": {
+        "label": "开发者ID(AppID)",
+        "info": "<a href='https://mp.weixin.qq.com/cgi-bin/frame'>微信公众号/设置与开发/开发接口管理</a>中获取 "
+      },
+      "weixin_app_secret": {
+        "label": "开发者密码(AppSecret)",
+        "info": "<a href='https://mp.weixin.qq.com/cgi-bin/frame'>微信公众号/设置与开发/开发接口管理</a>中获取"
+      },
+      "weixin_enabled": {
+        "label": "是否启用微信分享",
+        "info": "提供站点页面微信分享的能力</br>请在微信公众号中配置ip白名单（ip: ${service_ip}）, 配置后将有一段时间的生效延迟。</br>检查是否开启微信分享权限，微信公众号/设置与开发/开发接口管理: <a href='https://mp.weixin.qq.com/cgi-bin/frame'>网页服务/分享接口</a>。</br>分享链接是否为卡片：从卡片形式进入分享卡片形式，链接形式进入分享链接形式；网页初始链接分享可由公司的服务号中或收藏后进行卡片分享（此规则为微信分享限制）。"
+      },
+      "weixin_debug": {
+        "label": "是否开启debug提示",
+        "info": "请仅在配置阶段开启此选项；开启后在访问前端站点时若未正确配置微信分享将自动提示错误信息"
       }
     }
   }

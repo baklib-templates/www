@@ -1,50 +1,183 @@
 skill:
-  version: 1
+  version: 2
   preset: www
   writer: site_pages
-  summary: "企业官网：首页由区块组合，栏目分为服务、案例、新闻、关于等，页头页尾导航来自栏目结构。"
+  summary: 品牌、服务及多种内容组合；无专用模板匹配时用现成区块编排。
   home:
     template: index.sections
-    hero_fields: [hero_title, hero_description, hero_primary_label, hero_secondary_label]
-    slots: 6
-    slot_types: [off, html, latest, cards]
+    hero_fields: []
+    slots: 0
+    slot_types: []
+
   navigation:
     header_menu: true
     footer_menu: true
-  site_fields: [slogan, company_info, request_title, cta_title]
+  site_fields:
+  - logo_url
+  - footer_logo_url
+  - slogan
+  - request_title
+  - request_url
+  - is_show_author
+  - default_avatar_url
+  - default_thumb_url
+  - lucide_icons
+  - brand_logos_on
+  - brand_logos
+  - header_menu
+  - footer_menu
   page_types:
-    - template: channel
-      role: "卡片栏目：案例、解决方案、新闻等需要配图列表的内容"
-      writable: [title, description]
-    - template: channel.list
-      role: "列表栏目：服务项目、产品系列"
-      writable: [title, description]
-    - template: channel.side
-      role: "侧栏栏目：关于我们、联系方式等少量说明页"
-      writable: [title, description]
-    - template: page
-      role: "文章：服务、产品、案例、新闻的正文"
-      writable: [title, description, content]
-    - template: page.side
-      role: "侧栏文章：公司介绍、联系我们"
-      writable: [title, description, content]
+  - template: channel
+    role: channel
+    writable:
+    - title
+    - description
+    - thumb_image_url
+  - template: channel.list
+    role: channel.list
+    writable:
+    - title
+    - description
+    - thumb_image_url
+  - template: channel.side
+    role: channel.side
+    writable:
+    - title
+    - description
+    - thumb_image_url
+  - template: channel.videos
+    role: channel.videos
+    writable:
+    - title
+    - description
+    - thumb_image_url
+  - template: feedback_error_turbo_stream
+    role: feedback_error_turbo_stream
+    writable: []
+  - template: feedback_success_turbo_stream
+    role: feedback_success_turbo_stream
+    writable: []
+  - template: feedback_turbo_stream
+    role: feedback_turbo_stream
+    writable: []
+  - template: index.advertising
+    role: index.advertising
+    writable:
+    - description
+    - hero_image_url
+  - template: index.branding
+    role: index.branding
+    writable:
+    - description
+    - hero_image_url
+  - template: index.creative
+    role: index.creative
+    writable:
+    - description
+    - hero_image_url
+  - template: index.digital
+    role: index.digital
+    writable:
+    - description
+    - hero_image_url
+  - template: index.graphic
+    role: index.graphic
+    writable:
+    - description
+    - hero_image_url
+  - template: index
+    role: index
+    writable:
+    - description
+    - hero_image_url
+  - template: index.marketing
+    role: index.marketing
+    writable:
+    - description
+    - cta_title
+    - hero_image_url
+  - template: index.mobile-app
+    role: index.mobile-app
+    writable:
+    - description
+    - hero_image_url
+  - template: index.rtl
+    role: index.rtl
+    writable:
+    - description
+    - hero_image_url
+  - template: index.sections
+    role: 企业官网首页。按品牌、服务和资料选择 snippets/components 中的首屏与后续区块，按访客阅读顺序组装。
+    writable: []
+
+  - template: index.seo
+    role: index.seo
+    writable:
+    - description
+    - hero_image_url
+  - template: index.social-media
+    role: index.social-media
+    writable:
+    - description
+    - hero_image_url
+  - template: index.web-design
+    role: index.web-design
+    writable:
+    - counter_lines
+    - slider_one_url
+    - slider_one_image_url
+    - slider_two_url
+    - slider_two_image_url
+    - section_image_url
+  - template: page
+    role: page
+    writable:
+    - title
+    - description
+    - icon
+    - thumb_image_url
+    - content
+  - template: page.side
+    role: page.side
+    writable:
+    - title
+    - description
+    - content
+    - thumb_image_url
+  - template: page.video
+    role: page.video
+    writable:
+    - youtube_id
+    - thumb_image_url
+    - video_url
+    - title
+    - description
+    - content
+  - template: search
+    role: search
+    writable: []
+  - template: tag
+    role: tag
+    writable: []
   limits:
-    channels: 8
-    pages: 40
-  industries:
-    - key: general
-      label: "通用企业服务"
-      seed: seeds/industries/general.yml
-      keywords: []
-    - key: manufacturing
-      label: "制造与工业"
-      seed: seeds/industries/manufacturing.yml
-      keywords: [制造, 工厂, 设备, 工业, 机械, 零部件, 材料, 生产, 加工, 仪器, 电气, 化工, manufacturing, factory]
-    - key: software
-      label: "软件与互联网"
-      seed: seeds/industries/software.yml
-      keywords: [软件, SaaS, saas, 平台, 系统, App, 应用, 互联网, 数字化, 云, AI, 人工智能, 开发, software]
-    - key: professional_services
-      label: "咨询与专业服务"
-      seed: seeds/industries/professional_services.yml
-      keywords: [咨询, 顾问, 律师, 法律, 财务, 税务, 会计, 审计, 培训, 教育, 人力, 知识产权, consulting]
+    channels: 20
+    pages: 100
+  industries: []
+  content_model:
+    hierarchy:
+    - channel
+    - page
+    body_field: content
+    default_access: public
+    source_of_truth: site_pages
+    boundaries:
+    - 不提供交易、社区身份或其他不存在的后端业务
+  customization:
+    mode: organization_candidate
+    protected:
+    - content_model
+    - source_references
+    - permissions
+    - identity
+    - forms
+    - dam_references

@@ -1,4 +1,44 @@
 {
+  "context_schema": {
+    "label": "Website pages",
+    "types": {
+      "page": {
+        "label": "Overview page",
+        "fields": {
+          "topics": {
+            "label": "Topics"
+          },
+          "summary": {
+            "label": "Page summary"
+          },
+          "audience": {
+            "label": "Audience"
+          }
+        },
+        "relations": {
+          "related_to": {
+            "label": "Related pages"
+          }
+        }
+      },
+      "video": {
+        "label": "Video page",
+        "fields": {
+          "topics": {
+            "label": "Video topics"
+          },
+          "summary": {
+            "label": "Video description"
+          }
+        },
+        "relations": {
+          "related_to": {
+            "label": "Related videos"
+          }
+        }
+      }
+    }
+  },
   "settings_schema": {
     "generic": {
       "name": "Basic Setting",
@@ -14,13 +54,13 @@
           "label": "Copyright info",
           "placeholder": "Tanmer Inc."
         },
-        "is_allow_feedback":{
+        "is_allow_feedback": {
           "label": "is allow feedback"
         },
-        "is_allow_header":{
+        "is_allow_header": {
           "label": "is allow header"
         },
-        "is_allow_footer":{
+        "is_allow_footer": {
           "label": "is allow footer"
         }
       }
@@ -47,21 +87,78 @@
     "page": {
       "name": "Page",
       "settings": {
-        "title":{
+        "title": {
           "label": "Page Title",
           "info": "Title show in content"
         },
-        "description":{
+        "description": {
           "label": "Description"
         },
-        "tags":{
-          "label": "Tags"
+        "tags": {
+          "label": "Grouped tags",
+          "info": "Select tags from the site's groups and hierarchy. Existing ungrouped tags remain available; the page displays each tag's group and ancestor path."
         },
-        "thumb_image_url":{
+        "thumb_image_url": {
           "label": "Thumb image URL"
         },
-        "content":{
+        "content": {
           "label": "Page Content"
+        }
+      }
+    },
+    "weixin_share": {
+      "title": "WeChat configuration",
+      "weixin_app_id": {
+        "label": "Developer ID (AppID)",
+        "info": "<a href='https://mp.weixin.qq.com/cgi-bin/frame'>WeChat official account/setting and development/development interface management</a>"
+      },
+      "weixin_app_secret": {
+        "label": "Developer Password (AppSecret)",
+        "info": "Obtain from <a href='https://mp.weixin.qq.com/cgi-bin/frame'>WeChat Official Account / Settings & Development / Development Interface Management</a>"
+      },
+      "weixin_enabled": {
+        "label": "Do you want to enable WeChat sharing",
+        "info": "Provide the ability to share site pages on WeChat</br>Please configure the IP whitelist (ip: ${service_ip}) in the WeChat official account. After configuration, there will be a period of delay in effectiveness. </br>Check whether WeChat sharing permission is enabled, WeChat official account/setting and development/development interface management:<a href='https://mp.weixin.qq.com/cgi-bin/frame> Web service/sharing interface</a>.</br>Whether the sharing link is a card: enter the sharing card form from the card form, and enter the sharing link form from the link form; The initial link sharing on the webpage can be done through the company's service account or by bookmarking and sharing cards (this rule is a WeChat sharing restriction)."
+      },
+      "weixin_debug": {
+        "label": "Do you want to enable debug prompt",
+        "info": "Please only enable this option during the configuration phase; If WeChat sharing is not configured correctly when accessing the front-end site after activation, an error message will be automatically prompted"
+      }
+    },
+    "templates_schema": {
+      "index": {
+        "sections": {
+          "name": "Index.Sections",
+          "description": "Section-based homepage: header, footer and navigation come from the site; the homepage combines dynamic and HTML sections",
+          "hero_header": "Hero",
+          "hero_title": "Hero title",
+          "hero_description": "Hero introduction",
+          "hero_primary_label": "Primary button label",
+          "hero_primary_url": "Primary button link (defaults to the header button link)",
+          "hero_secondary_label": "Secondary button label",
+          "hero_secondary_url": "Secondary button link",
+          "hero_image": "Hero image",
+          "type": "Section type",
+          "type_off": "Hidden",
+          "type_feature": "Editorial feature",
+          "type_spotlight": "Spotlight",
+          "type_cta": "Call to action",
+          "type_html": "HTML section",
+          "type_latest": "Latest in channel",
+          "type_cards": "Channel cards",
+          "title": "Section title",
+          "description_label": "Section description",
+          "channel": "Channel path",
+          "channel_info": "Use a channel with published pages for lists. For a feature, spotlight or call to action, an optional page path adds a link.",
+          "limit": "Items to show",
+          "html": "Section HTML",
+          "html_info": "Only wx- section classes are kept; scripts and inline styles are removed",
+          "section_1": "Section 1",
+          "section_2": "Section 2",
+          "section_3": "Section 3",
+          "section_4": "Section 4",
+          "section_5": "Section 5",
+          "section_6": "Section 6"
         }
       }
     }

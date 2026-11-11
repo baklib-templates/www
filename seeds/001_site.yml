@@ -1,6 +1,6 @@
 site:
   language: "zh-CN"
-  time_zone: "Asia/Shanghai"
+  time_zone: "Beijing"
   favicon: "images/demo/product-400x400.png"
   settings:
     slogan: "WWW · 基于 Baklib CMS 的企业品牌官网与内容门户"

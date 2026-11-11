@@ -11,6 +11,6 @@ arrangements:
     description: 每个顶层目录成为一个频道。
     rule: top_folder
   - key: flat
-    title: 全部放在首页下
-    description: 导入的正文都放在首页下面。
+    title: 集中放在导入资料栏目
+    description: 所有正文平铺在首页下的专属「导入资料」栏目中。
     rule: flat

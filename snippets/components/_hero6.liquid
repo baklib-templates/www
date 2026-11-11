@@ -1,0 +1,35 @@
+{%# Hero 组件 style 6（来源：statics/snippets/hero.liquid） %}
+<!-- hero start -->
+<div id="hero" class="relative pt-14 pb-20 md:pt-16 md:pb-24 jarallax">
+  <!-- background parallax -->
+  <img class="jarallax-img" src="{{ 'images/img-min/bg3.jpg' | asset_url }}" alt="title">
+
+  <!-- background overlay -->
+  <div class="absolute top-0 start-0 w-full h-full opacity-90 bg-primary-700" style="z-index:-1;"></div>
+
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <div class="flex flex-wrap flex-row -mx-4 items-center justify-center mb-6">
+      <!-- content -->
+      <div class="max-w-full w-11/12 lg:w-7/12 px-4">
+        <div class="mt-6 py-4 lg:py-8 text-center">
+          <h1 class="text-4xl lg:text-5xl leading-normal font-semibold text-white capitalize mb-4">We are Creative <span class="text-yellow-300">Graphic design</span> Agency.</h1>
+          <p class="text-gray-100 leading-relaxed font-light text-xl mx-auto pb-2 mb-12">We work with brands to help them connect to their audience with the use of a visual identity, marketing collateral, print & publication design.</p>
+          <a class="py-3 px-5 inline-block text-center rounded-md leading-normal text-gray-100 bg-transparent border border-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 mb-4 sm:mb-0 me-6" href="#portfolio">
+            Portfolio
+          </a>
+          <a class="py-3 px-5 inline-block text-center rounded-md leading-normal text-gray-100 bg-transparent border border-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 mb-4 sm:mb-0" href="#services">
+            Services
+          </a>
+        </div>
+      </div><!-- end content -->
+    </div>
+    <!-- masthead -->
+    <div class="text-center absolute bottom-8 w-full start-0 animate-bounce hidden md:block">
+      <a href="#portfolio">
+        <div class="mx-auto py-5 px-3 w-6 h-8 rounded-xl opacity-80 border-2 border-white">
+          <div class="h-2 w-0.5 bg-white"><span class="invisible">Scroll button</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div><!-- end hero -->

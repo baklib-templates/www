@@ -31,6 +31,9 @@
   --noise: 0;
 }
 
+/* Retain the previous homepage utilities for saved custom layouts. */
+@source inline("mb-10 aspect-[4/3] border-primary-content/60 bg-gradient-to-br via-primary/90 tracking-widest text-primary-content/70 text-primary-content/85 btn-outline btn-lg hover:bg-primary-content/10 lg:grid-cols-2 lg:py-28");
+
 @source "../../layout/**/*.liquid";
 @source "../../snippets/**/*.liquid";
 @source "../../statics/**/*.liquid";

@@ -1,0 +1,101 @@
+{%# Portfolio 组件 style 2（来源：statics/snippets/portfolio.liquid） %}
+<!-- portfolio start -->
+<div id="portfolio" class="relative py-20 md:py-24 bg-gray-50 dark:bg-gray-900 dark:bg-opacity-20">
+  <div x-data="{ tab: 'all' }" class="container xl:max-w-6xl mx-auto px-4">
+    <!-- section header -->
+    <header class="text-center mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl leading-normal mb-2 font-bold text-gray-800 dark:text-gray-100"><span class="font-light">Our</span> Portfolio</h2>
+      <hr class="block w-12 h-0.5 mx-auto my-5 bg-primary-700 border-primary-700">
+    </header><!-- end section header -->
+
+    <!-- navigation -->
+    <div class="space-x-5 text-center">
+      <button @click.prevent="tab = 'all'" :class="{ 'text-primary-700' : tab === 'all' }" class="inline-block  bg-transparent border-0 outline-none mb-6 md:mb-12 focus:text-primary-700 focus:ring-0 focus:outline-none text-primary-700">
+        All
+      </button>
+
+      <button @click.prevent="tab = 'web'" :class="{ 'text-primary-700' : tab === 'web' }" class="inline-block  bg-transparent border-0 outline-none mb-6 md:mb-12 focus:text-primary-700 focus:ring-0 focus:outline-none">
+        Web
+      </button>
+
+      <button @click.prevent="tab = 'graphic'" :class="{ 'text-primary-700' : tab === 'graphic' }" class="inline-block  bg-transparent border-0 outline-none mb-6 md:mb-12 focus:text-primary-700 focus:ring-0 focus:outline-none">
+        Graphic
+      </button>
+
+      <button @click.prevent="tab = 'photo'" :class="{ 'text-primary-700' : tab === 'photo' }" class="inline-block  bg-transparent border-0 outline-none mb-6 md:mb-12 focus:text-primary-700 focus:ring-0 focus:outline-none">
+        Photograpy
+      </button>
+    </div><!-- end navigation -->
+
+    <!-- Portfolio Content -->
+    <div class="flex flex-wrap flex-row lightgallery-thumbnail">
+      <figure x-show="tab === 'graphic' || tab === 'photo' || tab === 'all'" data-src="{{ 'images/img-min/project_1.jpg' | asset_url }}" class="flex-shrink max-w-full w-full sm:w-1/2 lg:w-1/3 group" data-sub-html="title images">
+        <div class="relative overflow-hidden cursor-pointer">
+          <img class="block w-full h-auto transform duration-500 hover:scale-125" src="{{ 'images/img-min/project_1.jpg' | asset_url }}" alt="Image Description">
+          <figcaption class="absolute inset-x-0 bottom-0 h-20 transition-opacity duration-500 ease-in opacity-0 group-hover:opacity-100 overflow-hidden px-4 py-2 text-gray-100 bg-primary-700 text-center">
+            <h3 class="text-base leading-normal font-semibold my-1 text-gray-100">Logo Design</h3>
+            <small class="d-block">Branding</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure x-show="tab === 'web' || tab === 'all'" data-src="{{ 'images/img-min/project_2.jpg' | asset_url }}" class="flex-shrink max-w-full w-full sm:w-1/2 lg:w-1/3 group" data-sub-html="title images">
+        <div class="relative overflow-hidden cursor-pointer">
+          <img class="block w-full h-auto transform duration-500 hover:scale-125" src="{{ 'images/img-min/project_2.jpg' | asset_url }}" alt="Image Description">
+          <figcaption class="absolute inset-x-0 bottom-0 h-20 transition-opacity duration-500 ease-in opacity-0 group-hover:opacity-100 overflow-hidden px-4 py-2 text-gray-100 bg-primary-700 text-center">
+            <h3 class="text-base leading-normal font-semibold my-1 text-gray-100">Web Development</h3>
+            <small class="d-block">Web</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure x-show="tab === 'graphic' || tab === 'all'" data-src="{{ 'images/img-min/project_3.jpg' | asset_url }}" class="flex-shrink max-w-full w-full sm:w-1/2 lg:w-1/3 group" data-sub-html="title images">
+        <div class="relative overflow-hidden cursor-pointer">
+          <img class="block w-full h-auto transform duration-500 hover:scale-125" src="{{ 'images/img-min/project_3.jpg' | asset_url }}" alt="Image Description">
+          <figcaption class="absolute inset-x-0 bottom-0 h-20 transition-opacity duration-500 ease-in opacity-0 group-hover:opacity-100 overflow-hidden px-4 py-2 text-gray-100 bg-primary-700 text-center">
+            <h3 class="text-base leading-normal font-semibold my-1 text-gray-100">Graphic Design</h3>
+            <small class="d-block">Graphic</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure x-show="tab === 'graphic' || tab === 'all'" data-src="{{ 'images/img-min/project_4.jpg' | asset_url }}" class="flex-shrink max-w-full w-full sm:w-1/2 lg:w-1/3 group" data-sub-html="title images">
+        <div class="relative overflow-hidden cursor-pointer">
+          <img class="block w-full h-auto transform duration-500 hover:scale-125" src="{{ 'images/img-min/project_4.jpg' | asset_url }}" alt="Image Description">
+          <figcaption class="absolute inset-x-0 bottom-0 h-20 transition-opacity duration-500 ease-in opacity-0 group-hover:opacity-100 overflow-hidden px-4 py-2 text-gray-100 bg-primary-700 text-center">
+            <h3 class="text-base leading-normal font-semibold my-1 text-gray-100">Video Marketing</h3>
+            <small class="d-block">Video</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure x-show="tab === 'photo' || tab === 'all'" data-src="{{ 'images/img-min/project_5.jpg' | asset_url }}" class="flex-shrink max-w-full w-full sm:w-1/2 lg:w-1/3 group" data-sub-html="title images">
+        <div class="relative overflow-hidden cursor-pointer">
+          <img class="block w-full h-auto transform duration-500 hover:scale-125" src="{{ 'images/img-min/project_5.jpg' | asset_url }}" alt="Image Description">
+          <figcaption class="absolute inset-x-0 bottom-0 h-20 transition-opacity duration-500 ease-in opacity-0 group-hover:opacity-100 overflow-hidden px-4 py-2 text-gray-100 bg-primary-700 text-center">
+            <h3 class="text-base leading-normal font-semibold my-1 text-gray-100">Photography</h3>
+            <small class="d-block">Photo</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <figure x-show="tab === 'web' || tab === 'all'" data-src="{{ 'images/img-min/project_6.jpg' | asset_url }}" class="flex-shrink max-w-full w-full sm:w-1/2 lg:w-1/3 group" data-sub-html="title images">
+        <div class="relative overflow-hidden cursor-pointer">
+          <img class="block w-full h-auto transform duration-500 hover:scale-125" src="{{ 'images/img-min/project_6.jpg' | asset_url }}" alt="Image Description">
+          <figcaption class="absolute inset-x-0 bottom-0 h-20 transition-opacity duration-500 ease-in opacity-0 group-hover:opacity-100 overflow-hidden px-4 py-2 text-gray-100 bg-primary-700 text-center">
+            <h3 class="text-base leading-normal font-semibold my-1 text-gray-100">Apps Development</h3>
+            <small class="d-block">Apps</small>
+          </figcaption>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <div class="flex flex-wrap flex-row -mx-4">
+      <div class="w-full px-4 text-center mt-12">
+        <a href="#" class="py-3 px-5 inline-block text-center rounded-md leading-normal text-gray-100 bg-primary-700 border border-primary-700 hover:text-white hover:bg-primary-800 hover:ring-0 hover:border-primary-800 focus:bg-primary-800 focus:border-primary-800 focus:outline-none focus:ring-0">View all latest project</a>
+      </div>
+    </div>
+  </div>
+</div><!-- End portfolio -->

@@ -1,0 +1,38 @@
+{%# Heading 组件 style 4（来源：statics/snippets/heading.liquid） %}
+<!-- Heading start -->
+<div id="heading" class="relative py-12 lg:py-16 jarallax">
+  <!-- background parallax -->
+  <img class="jarallax-img" src="{{ 'images/img-min/bg-planet.jpg' | asset_url }}" alt="title">
+  <!-- background overlay -->
+  <div class="absolute top-0 start-0 w-full h-full opacity-90 bg-primary" style="z-index:-1;"></div>
+
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <div class="flex flex-wrap flex-row -mx-4 items-center justify-center">
+      <!-- content -->
+      <div class="max-w-full w-full lg:w-7/12 px-4">
+        <nav aria-label="breadcrumb">
+          <ol class="flex flex-wrap justify-center bg-transparent text-sm mb-0 space-x-1">
+            <li>
+              <a href="#" class="text-neutral-content/70 hover:text-neutral-content">
+                Home
+                <svg xmlns="http://www.w3.org/2000/svg" class="mx-1 inline-block transform ltr:rotate-0 rtl:rotate-180" width="1rem" height="1rem" fill="currentColor" viewBox="0 0 512 512"><polyline points="184 112 328 256 184 400" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-neutral-content/70 hover:text-neutral-content">
+                Category
+                <svg xmlns="http://www.w3.org/2000/svg" class="mx-1 inline-block transform ltr:rotate-0 rtl:rotate-180" width="1rem" height="1rem" fill="currentColor" viewBox="0 0 512 512"><polyline points="184 112 328 256 184 400" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px"/></svg>
+              </a>
+            </li>
+            <li class="hidden md:block text-neutral-content" aria-current="page">Business</li>
+          </ol>
+        </nav>
+
+        <div class="mt-0 pt-6 text-center">
+          <a href="#" class="text-sm py-1 px-3 bg-warning text-primary-content opacity-80 rounded">Lifestyle</a>
+          <h1 class="text-3xl md:text-4xl leading-normal mt-4 mb-2 font-semibold text-neutral-content">Simple Tips to Help your Business Growing Up</h1>      
+        </div>
+      </div><!-- end content -->
+    </div>
+  </div>
+</div><!-- End heading -->

@@ -15,6 +15,8 @@
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     {{ site.settings.head_html }}
+    {% weixin_share_tag app_id: site.settings.weixin_app_id, app_secret: site.settings.weixin_app_secret, debug: site.settings.weixin_debug, enabled: site.settings.weixin_enabled %}
+
     
   </head>
   <body id="js-body" class="pt-20 font-sans text-base font-normal text-base-content bg-base-100">

@@ -1,0 +1,35 @@
+{%# Video 组件 style 1（来源：statics/snippets/video.liquid） %}
+<!-- Video start -->
+<div id="video" class="relative py-20 md:py-24 bg-base-100">
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <div class="flex flex-wrap flex-row -mx-4">
+      <!-- content -->
+      <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 lg:order-2 self-center">
+        <div class="mb-12 lg:mb-0 lg:ms-12 lg:pe-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay=".1s">
+          <h2 class="text-3xl md:text-4xl leading-normal md:leading-tight font-bold text-base-content mb-3">Story Behind Our Digital Marketing Agency</h2>
+          <p class="text-base-content/70 leading-relaxed font-light text-xl mx-auto pb-2 mb-12">Upgency is the leading digital marketing agency in New York. We are striving to provide integrated digital marketing solutions.</p>
+          <!-- button -->
+          <a href="#" class="py-3 px-5 -ms-1 rounded-md leading-5 text-primary-content bg-primary border border-primary hover:text-primary-content hover:bg-primary hover:ring-0 hover:border-primary focus:bg-primary focus:border-primary focus:outline-none focus:ring-0 me-3">
+            <!-- <i class="fas fa-paper-plane me-1"></i> -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" class="inline-block me-2 transform ltr:rotate-0 rtl:-rotate-90" fill="currentColor" viewBox="0 0 512 512"><path d="M53.12,199.94l400-151.39a8,8,0,0,1,10.33,10.33l-151.39,400a8,8,0,0,1-15-.34L229.66,292.45a16,16,0,0,0-10.11-10.11L53.46,215A8,8,0,0,1,53.12,199.94Z" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="460" y1="52" x2="227" y2="285" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
+            Read Story
+          </a>
+        </div>
+      </div><!-- end content -->
+
+      <!-- play -->
+      <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 lg:order-1">
+        <div class="relative rounded-md overflow-hidden hover:shadow-xl">
+          <img src="{{ 'images/img-min/purple-laptop.jpg' | asset_url }}" class="max-w-full w-full h-auto" alt="background images">
+          <div class="absolute start-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 lightgallery-thumbnail">
+            <a id="preview-video2" aria-label="Introcluding Upgency" href="https://www.youtube.com/watch?v=nOsKM0cb0qE" class="p-5 rounded-full leading-5 text-base-content bg-base-200 border border-base-300 hover:text-base-content hover:ring-0 hover:border-base-300 focus:bg-base-300 focus:border-base-300 focus:outline-none focus:ring-0 relative">
+              <svg class="bi bi-play-fill inline-block" width="1.5rem" height="1.5rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div><!-- end team -->
+    </div>
+  </div>
+</div><!-- end video -->

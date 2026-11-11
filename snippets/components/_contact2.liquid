@@ -1,0 +1,57 @@
+{%# Contact 组件 style 2：左联系表单＋右地图与联系信息（双列）（来源：statics/snippets/contact.liquid） %}
+<!-- start contact -->
+<div id="contact" class="relative py-16 bg-base-100">
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <div class="flex flex-wrap flex-row -mx-4">
+      <div class="flex-shrink max-w-full px-4 w-full md:w-1/2">
+        <div class="contact-area w-100 p-4">
+          <h3 class="text-2xl leading-normal font-semibold text-base-content mb-12 text-center">Contact Us</h3>
+          <!-- contact form -->
+          <form action="#">
+            <div class="flex flex-wrap flex-row -mx-4">
+              <div class="flex-shrink w-full max-w-full md:w-1/2 px-4 mb-6">
+                <label class="inline-block mb-2" for="name">Your Name</label>
+                <input type="text" name="name" class="w-full leading-5 relative py-3 px-5 rounded text-base-content bg-base-100 border border-base-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0" id="name">
+                <div class="validate"></div>
+              </div>
+              <div class="flex-shrink w-full max-w-full md:w-1/2 px-4 mb-6">
+                <label class="inline-block mb-2" for="email">Your Email</label>
+                <input type="email" class="w-full leading-5 relative py-3 px-5 rounded text-base-content bg-base-100 border border-base-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0" name="email" id="email">
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="mb-6">
+              <label class="inline-block mb-2" for="subject">Subject</label>
+              <input type="text" class="w-full leading-5 relative py-3 px-5 rounded text-base-content bg-base-100 border border-base-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0" name="subject" id="subject">
+              <div class="validate"></div>
+            </div>
+            <div class="mb-6">
+              <label class="inline-block mb-2" for="messages">Message</label>
+              <textarea class="w-full leading-5 relative py-3 px-5 rounded text-base-content bg-base-100 border border-base-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0" name="message" rows="10" id="messages"></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="text-center mb-6">
+              <button class="py-3 px-5 inline-block text-center rounded-md leading-normal text-primary-content bg-primary border border-primary hover:text-primary-content hover:bg-primary hover:ring-0 hover:border-primary focus:bg-primary focus:border-primary focus:outline-none focus:ring-0" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" class="me-2 tranform ltr:rotate-0 rtl:-rotate-90 inline-block" viewBox="0 0 512 512"><path d="M53.12,199.94l400-151.39a8,8,0,0,1,10.33,10.33l-151.39,400a8,8,0,0,1-15-.34L229.66,292.45a16,16,0,0,0-10.11-10.11L53.46,215A8,8,0,0,1,53.12,199.94Z" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path><line x1="460" y1="52" x2="227" y2="285" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line></svg>
+                Send Message
+              </button>
+            </div>
+          </form><!-- end contact form -->
+        </div>
+      </div>
+
+      <div class="flex-shrink max-w-full px-4 w-full md:w-1/2">
+        <div class="p-6">
+          <h3 class="text-2xl leading-normal font-semibold text-base-content mb-12 text-center">Our Maps</h3>
+          <!-- maps responsive -->
+          <div class="relative overflow-hidden mb-6" style="padding-bottom: 75%">
+            <iframe class="absolute top-0 start-0 w-full h-full lazy" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1537389.2000627194!2d-105.93786665117793!3d41.18442046635789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sid!4v1585008753367!5m2!1sen!2sid" aria-label="Google maps" width="800" height="600" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </div><!-- end maps responsive -->
+          <p class="mb-4"><b>Working Time</b>: Monday - Saturday: 09:00 AM - 08:00 PM</p>
+          <p class="mb-4"><b>Phone Number</b>: +1 234 5678 90</p>
+          <p class="mb-4"><b>Email</b>: Support@domain.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- End contact -->

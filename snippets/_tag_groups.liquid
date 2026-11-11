@@ -1,0 +1,22 @@
+{% if tags != blank %}
+  {% assign group_keys = tags | map: 'group_key' | uniq %}
+  <nav class="my-4 space-y-3" aria-label="{{ 'generic.tags' | t }}">
+    {% for group_key in group_keys %}
+      <div class="space-y-2" data-tag-group="{{ group_key | escape }}">
+        {% for tag in tags %}
+          {% if tag.group_key == group_key %}
+            <p class="text-sm font-medium text-base-content/70">{% if tag.group_name != blank %}{{ tag.group_name }}{% else %}{{ 'generic.ungrouped_tags' | t }}{% endif %}</p>
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        <div class="flex flex-wrap gap-2">
+          {% for tag in tags %}
+            {% if tag.group_key == group_key %}
+              {% render 'tag', tag: tag %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </nav>
+{% endif %}

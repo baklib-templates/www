@@ -1,0 +1,3 @@
+release:
+  version: 1
+  required_components: [hero, services, content]

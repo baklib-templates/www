@@ -1,0 +1,47 @@
+{%# Counter 组件 style 1（来源：statics/snippets/counter.liquid） %}
+<!-- start counter -->
+<div id="counter" class="relative pt-20 pb-8 md:pt-24 md:pb-12 bg-neutral jarallax">
+  <!-- background parallax -->
+  <img class="jarallax-img" src="{{ 'images/img-min/bg3.jpg' | asset_url }}" alt="title">
+  <div class="absolute top-0 start-0 w-full h-full opacity-90 bg-primary" style="z-index:-1;"></div>
+
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <div class="flex flex-wrap flex-row -mx-4 text-center uppercase">
+      <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4">
+        <div class="p-6 bg-base-100 rounded shadow relative mb-6">
+          <div class="text-4xl mb-1 text-primary">
+            <span class="counter">1500<span>+</span></span>
+          </div>
+          <small class="block uppercase text-primary">Customers</small>
+        </div>
+      </div>
+
+      <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4">
+        <div class="p-6 bg-base-100 rounded shadow relative mb-6">
+          <div class="text-4xl mb-1 text-primary">
+            <span class="counter">250<span>+</span></span>
+          </div>
+          <small class="block uppercase text-primary">Company</small>
+        </div>
+      </div>
+
+      <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4">
+        <div class="p-6 bg-base-100 rounded shadow relative mb-6">
+          <div class="text-4xl mb-1 text-primary">
+            <span class="counter">520<span>+</span></span>
+          </div>
+          <small class="block uppercase text-primary">Running Project</small>
+        </div>
+      </div>
+
+      <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4">
+        <div class="p-6 bg-base-100 rounded shadow relative mb-6">
+          <div class="text-4xl mb-1 text-primary">
+            <span class="counter">450<span>+</span></span>
+          </div>
+          <small class="block uppercase text-primary">Complete Project</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- end counter -->

@@ -1,11 +1,10 @@
 {% if tag %}
-  <a href="{{ tag.path }}"
-    class="inner-block px-2 py-1 mr-2 rounded-full border-1 border-primary hover:bg-primary"
-    style="
-      background-color: hsl({{ tag.color }}, {{ tag.color }}%, 95%);
-      color: {{ tag.color }};
-    "
-  >
-    # {{ tag.name }}
+  <a href="{{ tag.path | escape }}"
+    class="inline-flex min-h-11 max-w-full items-center gap-2 rounded-lg border border-base-300 bg-base-100 px-3 py-2 text-sm text-base-content hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+    rel="tag">
+    <span class="h-2 w-2 shrink-0 rounded-full bg-primary"{% if tag.color != blank %} style="background-color: {{ tag.color | escape }}"{% endif %} aria-hidden="true"></span>
+    <span class="min-w-0 break-words">
+      {% for ancestor_name in tag.ancestor_names %}{{ ancestor_name }}<span class="mx-1 text-base-content/60" aria-hidden="true">/</span>{% endfor %}{{ tag.name }}
+    </span>
   </a>
 {% endif %}

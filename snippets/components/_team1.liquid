@@ -1,0 +1,242 @@
+{%# Team 组件 style 1（来源：statics/snippets/team.liquid） %}
+<!-- Team start -->
+<div id="team" class="relative pt-20 pb-8 md:pt-24 md:pb-12 bg-base-200">
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <!-- section header -->
+    <header class="text-center mx-auto mb-12 lg:px-20">
+      <h2 class="text-2xl md:text-3xl leading-normal mb-2 font-bold text-base-content"><span class="font-light">Professional</span> Team</h2>
+      <hr class="block w-12 h-0.5 mx-auto my-5 bg-primary border-primary">
+    </header><!-- end section header -->
+
+    <!-- row -->
+    <div class="flex flex-wrap flex-row -mx-4 justify-center">
+      <div class="flex-shrink max-w-full px-4 w-10/12 sm:w-1/2">
+        <!-- team block -->
+        <div class="relative overflow-hidden rounded shadow bg-base-100 mb-12">
+          <!-- Row -->
+          <div class="flex flex-wrap flex-row">
+            <div class="flex-shrink max-w-full p-4 w-full lg:w-5/12">
+              <!-- team thumbnail -->
+              <div class="relative overflow-hidden bg-primary z-0">
+                <!-- scribble -->
+                <figure class="absolute top-0 end-0 -mt-12 -me-12 wow fadeInDown" data-wow-duration="1s" style="z-index:-1">
+                  <svg class="text-neutral-content opacity-30" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M42.5,-66.2C57.1,-56.7,72.5,-48.4,81.1,-35.3C89.8,-22.2,91.8,-4.4,89.6,13C87.3,30.4,80.7,47.4,69.5,60.1C58.3,72.9,42.4,81.5,25.9,84.6C9.5,87.8,-7.4,85.4,-22.7,79.8C-37.9,74.1,-51.5,65.2,-60.9,53.3C-70.4,41.4,-75.8,26.6,-79,10.8C-82.1,-5,-83.1,-21.7,-77.7,-36.4C-72.4,-51,-60.7,-63.7,-46.7,-73.5C-32.7,-83.3,-16.4,-90.1,-1.2,-88.2C13.9,-86.3,27.8,-75.7,42.5,-66.2Z" transform="translate(100 100)" />
+                  </svg>
+                </figure>
+                <img src="{{ 'images/avatar.svg' | asset_url }}" class="max-w-full w-full h-auto" alt="title image">
+                <div class="py-2 px-0 inset-x-4 absolute text-center bottom-4 rounded bg-base-100">
+                  <ul class="space-x-3">
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Twitter link" href="#">
+                        <!-- <i class="fab fa-twitter text-twitter"></i> -->
+                         <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M496,109.5a201.8,201.8,0,0,1-56.55,15.3,97.51,97.51,0,0,0,43.33-53.6,197.74,197.74,0,0,1-62.56,23.5A99.14,99.14,0,0,0,348.31,64c-54.42,0-98.46,43.4-98.46,96.9a93.21,93.21,0,0,0,2.54,22.1,280.7,280.7,0,0,1-203-101.3A95.69,95.69,0,0,0,36,130.4C36,164,53.53,193.7,80,211.1A97.5,97.5,0,0,1,35.22,199v1.2c0,47,34,86.1,79,95a100.76,100.76,0,0,1-25.94,3.4,94.38,94.38,0,0,1-18.51-1.8c12.51,38.5,48.92,66.5,92.05,67.3A199.59,199.59,0,0,1,39.5,405.6,203,203,0,0,1,16,404.2,278.68,278.68,0,0,0,166.74,448c181.36,0,280.44-147.7,280.44-275.8,0-4.2-.11-8.4-.31-12.5A198.48,198.48,0,0,0,496,109.5Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Facebook link" href="#">
+                        <!-- <i class="fab fa-facebook text-facebook"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M455.27,32H56.73A24.74,24.74,0,0,0,32,56.73V455.27A24.74,24.74,0,0,0,56.73,480H256V304H202.45V240H256V189c0-57.86,40.13-89.36,91.82-89.36,24.73,0,51.33,1.86,57.51,2.68v60.43H364.15c-28.12,0-33.48,13.3-33.48,32.9V240h67l-8.75,64H330.67V480h124.6A24.74,24.74,0,0,0,480,455.27V56.73A24.74,24.74,0,0,0,455.27,32Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Instagram link" href="#">
+                        <!-- <i class="fab fa-instagram text-instagram"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M349.33,69.33a93.62,93.62,0,0,1,93.34,93.34V349.33a93.62,93.62,0,0,1-93.34,93.34H162.67a93.62,93.62,0,0,1-93.34-93.34V162.67a93.62,93.62,0,0,1,93.34-93.34H349.33m0-37.33H162.67C90.8,32,32,90.8,32,162.67V349.33C32,421.2,90.8,480,162.67,480H349.33C421.2,480,480,421.2,480,349.33V162.67C480,90.8,421.2,32,349.33,32Z"></path><path fill="currentColor" d="M377.33,162.67a28,28,0,1,1,28-28A27.94,27.94,0,0,1,377.33,162.67Z"></path><path fill="currentColor" d="M256,181.33A74.67,74.67,0,1,1,181.33,256,74.75,74.75,0,0,1,256,181.33M256,144A112,112,0,1,0,368,256,112,112,0,0,0,256,144Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                     <a class="hover:text-primary" aria-label="Linkedin link" href="#">
+                        <!-- <i class="fab fa-linkedin text-linkedin"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M444.17,32H70.28C49.85,32,32,46.7,32,66.89V441.61C32,461.91,49.85,480,70.28,480H444.06C464.6,480,480,461.79,480,441.61V66.89C480.12,46.7,464.6,32,444.17,32ZM170.87,405.43H106.69V205.88h64.18ZM141,175.54h-.46c-20.54,0-33.84-15.29-33.84-34.43,0-19.49,13.65-34.42,34.65-34.42s33.85,14.82,34.31,34.42C175.65,160.25,162.35,175.54,141,175.54ZM405.43,405.43H341.25V296.32c0-26.14-9.34-44-32.56-44-17.74,0-28.24,12-32.91,23.69-1.75,4.2-2.22,9.92-2.22,15.76V405.43H209.38V205.88h64.18v27.77c9.34-13.3,23.93-32.44,57.88-32.44,42.13,0,74,27.77,74,87.64Z"></path></svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- end team thumbnail -->
+            </div>
+            <div class="flex-shrink max-w-full px-4 w-full lg:w-7/12">
+              <!-- team info -->
+              <div class="p-6">
+                <p class="text-xl leading-normal mb-2 font-semibold text-base-content">Joe Antonio</p>
+                <p class="text-base-content/70 mb-2">Founder CEO</p>
+                <p class="text-base-content/70"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem .</p>
+              </div><!-- end team info -->
+            </div>
+          </div><!-- Row -->
+        </div><!-- team block -->
+      </div>
+
+      <div class="flex-shrink max-w-full px-4 w-10/12 sm:w-1/2">
+        <!-- team block -->
+        <div class="relative overflow-hidden rounded shadow bg-base-100 mb-12">
+          <!-- Row -->
+          <div class="flex flex-wrap flex-row">
+            <div class="flex-shrink max-w-full p-4 w-full lg:w-5/12">
+              <!-- team thumbnail -->
+              <div class="relative overflow-hidden bg-primary z-0">
+                <!-- scribble -->
+                <figure class="absolute top-0 end-0 -mt-12 -me-12 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s" style="z-index:-1">
+                  <svg class="text-neutral-content opacity-30" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M42.5,-66.2C57.1,-56.7,72.5,-48.4,81.1,-35.3C89.8,-22.2,91.8,-4.4,89.6,13C87.3,30.4,80.7,47.4,69.5,60.1C58.3,72.9,42.4,81.5,25.9,84.6C9.5,87.8,-7.4,85.4,-22.7,79.8C-37.9,74.1,-51.5,65.2,-60.9,53.3C-70.4,41.4,-75.8,26.6,-79,10.8C-82.1,-5,-83.1,-21.7,-77.7,-36.4C-72.4,-51,-60.7,-63.7,-46.7,-73.5C-32.7,-83.3,-16.4,-90.1,-1.2,-88.2C13.9,-86.3,27.8,-75.7,42.5,-66.2Z" transform="translate(100 100)" />
+                  </svg>
+                </figure>
+                <img src="{{ 'images/img-min/avatar2.png' | asset_url }}" class="max-w-full w-full h-auto" alt="title image">
+                <div class="py-2 px-0 inset-x-4 absolute text-center bottom-4 rounded bg-base-100">
+                  <ul class="space-x-3">
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Twitter link" href="#">
+                        <!-- <i class="fab fa-twitter text-twitter"></i> -->
+                         <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M496,109.5a201.8,201.8,0,0,1-56.55,15.3,97.51,97.51,0,0,0,43.33-53.6,197.74,197.74,0,0,1-62.56,23.5A99.14,99.14,0,0,0,348.31,64c-54.42,0-98.46,43.4-98.46,96.9a93.21,93.21,0,0,0,2.54,22.1,280.7,280.7,0,0,1-203-101.3A95.69,95.69,0,0,0,36,130.4C36,164,53.53,193.7,80,211.1A97.5,97.5,0,0,1,35.22,199v1.2c0,47,34,86.1,79,95a100.76,100.76,0,0,1-25.94,3.4,94.38,94.38,0,0,1-18.51-1.8c12.51,38.5,48.92,66.5,92.05,67.3A199.59,199.59,0,0,1,39.5,405.6,203,203,0,0,1,16,404.2,278.68,278.68,0,0,0,166.74,448c181.36,0,280.44-147.7,280.44-275.8,0-4.2-.11-8.4-.31-12.5A198.48,198.48,0,0,0,496,109.5Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Facebook link" href="#">
+                        <!-- <i class="fab fa-facebook text-facebook"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M455.27,32H56.73A24.74,24.74,0,0,0,32,56.73V455.27A24.74,24.74,0,0,0,56.73,480H256V304H202.45V240H256V189c0-57.86,40.13-89.36,91.82-89.36,24.73,0,51.33,1.86,57.51,2.68v60.43H364.15c-28.12,0-33.48,13.3-33.48,32.9V240h67l-8.75,64H330.67V480h124.6A24.74,24.74,0,0,0,480,455.27V56.73A24.74,24.74,0,0,0,455.27,32Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Instagram link" href="#">
+                        <!-- <i class="fab fa-instagram text-instagram"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M349.33,69.33a93.62,93.62,0,0,1,93.34,93.34V349.33a93.62,93.62,0,0,1-93.34,93.34H162.67a93.62,93.62,0,0,1-93.34-93.34V162.67a93.62,93.62,0,0,1,93.34-93.34H349.33m0-37.33H162.67C90.8,32,32,90.8,32,162.67V349.33C32,421.2,90.8,480,162.67,480H349.33C421.2,480,480,421.2,480,349.33V162.67C480,90.8,421.2,32,349.33,32Z"></path><path fill="currentColor" d="M377.33,162.67a28,28,0,1,1,28-28A27.94,27.94,0,0,1,377.33,162.67Z"></path><path fill="currentColor" d="M256,181.33A74.67,74.67,0,1,1,181.33,256,74.75,74.75,0,0,1,256,181.33M256,144A112,112,0,1,0,368,256,112,112,0,0,0,256,144Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                     <a class="hover:text-primary" aria-label="Linkedin link" href="#">
+                        <!-- <i class="fab fa-linkedin text-linkedin"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M444.17,32H70.28C49.85,32,32,46.7,32,66.89V441.61C32,461.91,49.85,480,70.28,480H444.06C464.6,480,480,461.79,480,441.61V66.89C480.12,46.7,464.6,32,444.17,32ZM170.87,405.43H106.69V205.88h64.18ZM141,175.54h-.46c-20.54,0-33.84-15.29-33.84-34.43,0-19.49,13.65-34.42,34.65-34.42s33.85,14.82,34.31,34.42C175.65,160.25,162.35,175.54,141,175.54ZM405.43,405.43H341.25V296.32c0-26.14-9.34-44-32.56-44-17.74,0-28.24,12-32.91,23.69-1.75,4.2-2.22,9.92-2.22,15.76V405.43H209.38V205.88h64.18v27.77c9.34-13.3,23.93-32.44,57.88-32.44,42.13,0,74,27.77,74,87.64Z"></path></svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- end team thumbnail -->
+            </div>
+            <div class="flex-shrink max-w-full px-4 w-full lg:w-7/12">
+              <!-- team info -->
+              <div class="p-6">
+                <p class="text-xl leading-normal mb-2 font-semibold text-base-content">Thony Khan</p>
+                <p class="text-base-content/70 mb-2">Senior Designer</p>
+                <p class="text-base-content/70"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem .</p>
+              </div><!-- end team info -->
+            </div>
+          </div><!-- Row -->
+        </div><!-- team block -->
+      </div>
+
+      <div class="flex-shrink max-w-full px-4 w-10/12 sm:w-1/2">
+        <!-- team block -->
+        <div class="relative overflow-hidden rounded shadow bg-base-100 mb-12">
+          <!-- Row -->
+          <div class="flex flex-wrap flex-row">
+            <div class="flex-shrink max-w-full p-4 w-full lg:w-5/12">
+              <!-- team thumbnail -->
+              <div class="relative overflow-hidden bg-primary z-0">
+                <!-- scribble -->
+                <figure class="absolute top-0 end-0 -mt-12 -me-12 wow fadeInDown" data-wow-duration="1s" style="z-index:-1">
+                  <svg class="text-neutral-content opacity-30" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M42.5,-66.2C57.1,-56.7,72.5,-48.4,81.1,-35.3C89.8,-22.2,91.8,-4.4,89.6,13C87.3,30.4,80.7,47.4,69.5,60.1C58.3,72.9,42.4,81.5,25.9,84.6C9.5,87.8,-7.4,85.4,-22.7,79.8C-37.9,74.1,-51.5,65.2,-60.9,53.3C-70.4,41.4,-75.8,26.6,-79,10.8C-82.1,-5,-83.1,-21.7,-77.7,-36.4C-72.4,-51,-60.7,-63.7,-46.7,-73.5C-32.7,-83.3,-16.4,-90.1,-1.2,-88.2C13.9,-86.3,27.8,-75.7,42.5,-66.2Z" transform="translate(100 100)" />
+                  </svg>
+                </figure>
+                <img src="{{ 'images/img-min/avatar3.png' | asset_url }}" class="max-w-full w-full h-auto" alt="title image">
+                <div class="py-2 px-0 inset-x-4 absolute text-center bottom-4 rounded bg-base-100">
+                  <ul class="space-x-3">
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Twitter link" href="#">
+                        <!-- <i class="fab fa-twitter text-twitter"></i> -->
+                         <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M496,109.5a201.8,201.8,0,0,1-56.55,15.3,97.51,97.51,0,0,0,43.33-53.6,197.74,197.74,0,0,1-62.56,23.5A99.14,99.14,0,0,0,348.31,64c-54.42,0-98.46,43.4-98.46,96.9a93.21,93.21,0,0,0,2.54,22.1,280.7,280.7,0,0,1-203-101.3A95.69,95.69,0,0,0,36,130.4C36,164,53.53,193.7,80,211.1A97.5,97.5,0,0,1,35.22,199v1.2c0,47,34,86.1,79,95a100.76,100.76,0,0,1-25.94,3.4,94.38,94.38,0,0,1-18.51-1.8c12.51,38.5,48.92,66.5,92.05,67.3A199.59,199.59,0,0,1,39.5,405.6,203,203,0,0,1,16,404.2,278.68,278.68,0,0,0,166.74,448c181.36,0,280.44-147.7,280.44-275.8,0-4.2-.11-8.4-.31-12.5A198.48,198.48,0,0,0,496,109.5Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Facebook link" href="#">
+                        <!-- <i class="fab fa-facebook text-facebook"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M455.27,32H56.73A24.74,24.74,0,0,0,32,56.73V455.27A24.74,24.74,0,0,0,56.73,480H256V304H202.45V240H256V189c0-57.86,40.13-89.36,91.82-89.36,24.73,0,51.33,1.86,57.51,2.68v60.43H364.15c-28.12,0-33.48,13.3-33.48,32.9V240h67l-8.75,64H330.67V480h124.6A24.74,24.74,0,0,0,480,455.27V56.73A24.74,24.74,0,0,0,455.27,32Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Instagram link" href="#">
+                        <!-- <i class="fab fa-instagram text-instagram"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M349.33,69.33a93.62,93.62,0,0,1,93.34,93.34V349.33a93.62,93.62,0,0,1-93.34,93.34H162.67a93.62,93.62,0,0,1-93.34-93.34V162.67a93.62,93.62,0,0,1,93.34-93.34H349.33m0-37.33H162.67C90.8,32,32,90.8,32,162.67V349.33C32,421.2,90.8,480,162.67,480H349.33C421.2,480,480,421.2,480,349.33V162.67C480,90.8,421.2,32,349.33,32Z"></path><path fill="currentColor" d="M377.33,162.67a28,28,0,1,1,28-28A27.94,27.94,0,0,1,377.33,162.67Z"></path><path fill="currentColor" d="M256,181.33A74.67,74.67,0,1,1,181.33,256,74.75,74.75,0,0,1,256,181.33M256,144A112,112,0,1,0,368,256,112,112,0,0,0,256,144Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                     <a class="hover:text-primary" aria-label="Linkedin link" href="#">
+                        <!-- <i class="fab fa-linkedin text-linkedin"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M444.17,32H70.28C49.85,32,32,46.7,32,66.89V441.61C32,461.91,49.85,480,70.28,480H444.06C464.6,480,480,461.79,480,441.61V66.89C480.12,46.7,464.6,32,444.17,32ZM170.87,405.43H106.69V205.88h64.18ZM141,175.54h-.46c-20.54,0-33.84-15.29-33.84-34.43,0-19.49,13.65-34.42,34.65-34.42s33.85,14.82,34.31,34.42C175.65,160.25,162.35,175.54,141,175.54ZM405.43,405.43H341.25V296.32c0-26.14-9.34-44-32.56-44-17.74,0-28.24,12-32.91,23.69-1.75,4.2-2.22,9.92-2.22,15.76V405.43H209.38V205.88h64.18v27.77c9.34-13.3,23.93-32.44,57.88-32.44,42.13,0,74,27.77,74,87.64Z"></path></svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- end team thumbnail -->
+            </div>
+            <div class="flex-shrink max-w-full px-4 w-full lg:w-7/12">
+              <!-- team info -->
+              <div class="p-6">
+                <p class="text-xl leading-normal mb-2 font-semibold text-base-content">John Timito</p>
+                <p class="text-base-content/70 mb-2">Marketing</p>
+                <p class="text-base-content/70"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem .</p>
+              </div><!-- end team info -->
+            </div>
+          </div><!-- Row -->
+        </div><!-- team block -->
+      </div>
+
+      <div class="flex-shrink max-w-full px-4 w-10/12 sm:w-1/2">
+        <!-- team block -->
+        <div class="relative overflow-hidden rounded shadow bg-base-100 mb-12">
+          <!-- Row -->
+          <div class="flex flex-wrap flex-row">
+            <div class="flex-shrink max-w-full p-4 w-full lg:w-5/12">
+              <!-- team thumbnail -->
+              <div class="relative overflow-hidden bg-primary z-0">
+                <!-- scribble -->
+                <figure class="absolute top-0 end-0 -mt-12 -me-12 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s" style="z-index:-1">
+                  <svg class="text-neutral-content opacity-30" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M42.5,-66.2C57.1,-56.7,72.5,-48.4,81.1,-35.3C89.8,-22.2,91.8,-4.4,89.6,13C87.3,30.4,80.7,47.4,69.5,60.1C58.3,72.9,42.4,81.5,25.9,84.6C9.5,87.8,-7.4,85.4,-22.7,79.8C-37.9,74.1,-51.5,65.2,-60.9,53.3C-70.4,41.4,-75.8,26.6,-79,10.8C-82.1,-5,-83.1,-21.7,-77.7,-36.4C-72.4,-51,-60.7,-63.7,-46.7,-73.5C-32.7,-83.3,-16.4,-90.1,-1.2,-88.2C13.9,-86.3,27.8,-75.7,42.5,-66.2Z" transform="translate(100 100)" />
+                  </svg>
+                </figure>
+                <img src="{{ 'images/img-min/avatar4.png' | asset_url }}" class="max-w-full w-full h-auto" alt="title image">
+                <div class="py-2 px-0 inset-x-4 absolute text-center bottom-4 rounded bg-base-100">
+                  <ul class="space-x-3">
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Twitter link" href="#">
+                        <!-- <i class="fab fa-twitter text-twitter"></i> -->
+                         <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M496,109.5a201.8,201.8,0,0,1-56.55,15.3,97.51,97.51,0,0,0,43.33-53.6,197.74,197.74,0,0,1-62.56,23.5A99.14,99.14,0,0,0,348.31,64c-54.42,0-98.46,43.4-98.46,96.9a93.21,93.21,0,0,0,2.54,22.1,280.7,280.7,0,0,1-203-101.3A95.69,95.69,0,0,0,36,130.4C36,164,53.53,193.7,80,211.1A97.5,97.5,0,0,1,35.22,199v1.2c0,47,34,86.1,79,95a100.76,100.76,0,0,1-25.94,3.4,94.38,94.38,0,0,1-18.51-1.8c12.51,38.5,48.92,66.5,92.05,67.3A199.59,199.59,0,0,1,39.5,405.6,203,203,0,0,1,16,404.2,278.68,278.68,0,0,0,166.74,448c181.36,0,280.44-147.7,280.44-275.8,0-4.2-.11-8.4-.31-12.5A198.48,198.48,0,0,0,496,109.5Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Facebook link" href="#">
+                        <!-- <i class="fab fa-facebook text-facebook"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M455.27,32H56.73A24.74,24.74,0,0,0,32,56.73V455.27A24.74,24.74,0,0,0,56.73,480H256V304H202.45V240H256V189c0-57.86,40.13-89.36,91.82-89.36,24.73,0,51.33,1.86,57.51,2.68v60.43H364.15c-28.12,0-33.48,13.3-33.48,32.9V240h67l-8.75,64H330.67V480h124.6A24.74,24.74,0,0,0,480,455.27V56.73A24.74,24.74,0,0,0,455.27,32Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                      <a class="hover:text-primary" aria-label="Instagram link" href="#">
+                        <!-- <i class="fab fa-instagram text-instagram"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M349.33,69.33a93.62,93.62,0,0,1,93.34,93.34V349.33a93.62,93.62,0,0,1-93.34,93.34H162.67a93.62,93.62,0,0,1-93.34-93.34V162.67a93.62,93.62,0,0,1,93.34-93.34H349.33m0-37.33H162.67C90.8,32,32,90.8,32,162.67V349.33C32,421.2,90.8,480,162.67,480H349.33C421.2,480,480,421.2,480,349.33V162.67C480,90.8,421.2,32,349.33,32Z"></path><path fill="currentColor" d="M377.33,162.67a28,28,0,1,1,28-28A27.94,27.94,0,0,1,377.33,162.67Z"></path><path fill="currentColor" d="M256,181.33A74.67,74.67,0,1,1,181.33,256,74.75,74.75,0,0,1,256,181.33M256,144A112,112,0,1,0,368,256,112,112,0,0,0,256,144Z"></path></svg>
+                      </a>
+                    </li>
+                    <li class="inline-block">
+                     <a class="hover:text-primary" aria-label="Linkedin link" href="#">
+                        <!-- <i class="fab fa-linkedin text-linkedin"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M444.17,32H70.28C49.85,32,32,46.7,32,66.89V441.61C32,461.91,49.85,480,70.28,480H444.06C464.6,480,480,461.79,480,441.61V66.89C480.12,46.7,464.6,32,444.17,32ZM170.87,405.43H106.69V205.88h64.18ZM141,175.54h-.46c-20.54,0-33.84-15.29-33.84-34.43,0-19.49,13.65-34.42,34.65-34.42s33.85,14.82,34.31,34.42C175.65,160.25,162.35,175.54,141,175.54ZM405.43,405.43H341.25V296.32c0-26.14-9.34-44-32.56-44-17.74,0-28.24,12-32.91,23.69-1.75,4.2-2.22,9.92-2.22,15.76V405.43H209.38V205.88h64.18v27.77c9.34-13.3,23.93-32.44,57.88-32.44,42.13,0,74,27.77,74,87.64Z"></path></svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- end team thumbnail -->
+            </div>
+            <div class="flex-shrink max-w-full px-4 w-full lg:w-7/12">
+              <!-- team info -->
+              <div class="p-6">
+                <p class="text-xl leading-normal mb-2 font-semibold text-base-content">Daniel Emo</p>
+                <p class="text-base-content/70 mb-2">Senior Designer</p>
+                <p class="text-base-content/70"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem .</p>
+              </div><!-- end team info -->
+            </div>
+          </div><!-- Row -->
+        </div><!-- team block -->
+      </div>
+    </div>
+  </div>
+</div><!-- End Team-->

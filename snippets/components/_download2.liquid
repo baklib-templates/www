@@ -1,0 +1,52 @@
+{%# Download 组件 style 2（来源：statics/snippets/download.liquid） %}
+<!-- downloads start -->
+<div id="downloads" class="relative py-20 md:py-24 bg-base-100 jarallax z-0">
+  <!-- background parallax -->
+  <img class="jarallax-img" src="{{ 'images/img-min/bg3.jpg' | asset_url }}" alt="title">
+
+  <!-- background overlay -->
+  <div class="absolute top-0 start-0 w-full h-full opacity-90 bg-primary" style="z-index:-1;"></div>
+
+  <!-- hero content -->
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <div class="flex flex-wrap flex-row -mx-4 items-center text-center">
+      <!-- content text -->
+      <div class="max-w-full px-4 w-full md:w-2/3 mx-auto z-0">
+        <h1 class="text-4xl leading-normal font-bold mb-4 text-neutral-content">App for Android and OS X</h1>
+        <p class="text-base-content/70 leading-relaxed font-light text-xl mx-auto pb-2 mb-8">Download Tailpro App from your desktop and Mobile device</p>
+        <!--App store button-->
+        <a class="py-3 px-5 block sm:inline-block text-center rounded-md leading-normal text-neutral-content bg-neutral border border-base-300 hover:text-neutral-content hover:bg-neutral hover:ring-0 hover:border-black focus:bg-neutral focus:border-black focus:outline-none focus:ring-0 sm:me-6 mb-3" href="https://itunes.apple.com/">
+          <span class="flex items-center">
+            <!--icon-->
+            <span class="me-3">
+              <!-- <span class="fab fa-apple font-size-2"></span> -->
+               <svg xmlns="http://www.w3.org/2000/svg" class="inline-block" width="2rem" height="2rem" fill="currentColor" viewBox="0 0 512 512"><path d="M256,32C132.26,32,32,132.26,32,256S132.26,480,256,480,480,379.74,480,256,379.74,32,256,32ZM171,353.89a15.48,15.48,0,0,1-13.46,7.65,14.91,14.91,0,0,1-7.86-2.16,15.48,15.48,0,0,1-5.6-21.21l15.29-25.42a8.73,8.73,0,0,1,7.54-4.3h2.26c11.09,0,18.85,6.67,21.11,13.13Zm129.45-50L200.32,304H133.77a15.46,15.46,0,0,1-15.51-16.15c.32-8.4,7.65-14.76,16-14.76h48.24l57.19-97.35h0l-18.52-31.55C217,137,218.85,127.52,226,123a15.57,15.57,0,0,1,21.87,5.17l9.9,16.91h.11l9.91-16.91A15.58,15.58,0,0,1,289.6,123c7.11,4.52,8.94,14,4.74,21.22l-18.52,31.55-18,30.69-39.09,66.66v.11h57.61c7.22,0,16.27,3.88,19.93,10.12l.32.65c3.23,5.49,5.06,9.26,5.06,14.75A13.82,13.82,0,0,1,300.48,303.92Zm77.75.11H351.09v.11l19.82,33.71a15.8,15.8,0,0,1-5.17,21.53,15.53,15.53,0,0,1-8.08,2.27A15.71,15.71,0,0,1,344.2,354l-29.29-49.86-18.2-31L273.23,233a38.35,38.35,0,0,1-.65-38c4.64-8.19,8.19-10.34,8.19-10.34L333,273h44.91c8.4,0,15.61,6.46,16,14.75A15.65,15.65,0,0,1,378.23,304Z"/></svg>
+            </span>
+            <!--text-->
+            <span class="text-start">
+              <span class="block">Download on the</span>
+              <strong>App Store</strong>
+            </span><!--end text-->
+          </span>
+        </a>
+
+        <!--google play-->
+        <a class="py-3 px-5 block sm:inline-block text-center rounded-md leading-normal text-base-content bg-base-300 border border-base-300 hover:text-base-content hover:bg-gray-300 hover:ring-0 hover:border-base-300 focus:bg-gray-300 focus:border-base-300 focus:outline-none focus:ring-0 sm:me-6 mb-3" href="https://play.google.com/">
+          <span class="flex items-center">
+            <!--icon-->
+            <span class="me-3">
+              <!-- <span class="fab fa-google-play font-size-2"></span> -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="inline-block" width="2rem" height="2rem" fill="currentColor" viewBox="0 0 512 512"><path d="M48,59.49v393a4.33,4.33,0,0,0,7.37,3.07L260,256,55.37,56.42A4.33,4.33,0,0,0,48,59.49Z"/><path d="M345.8,174,89.22,32.64l-.16-.09c-4.42-2.4-8.62,3.58-5,7.06L285.19,231.93Z"/><path d="M84.08,472.39c-3.64,3.48.56,9.46,5,7.06l.16-.09L345.8,338l-60.61-57.95Z"/><path d="M449.38,231l-71.65-39.46L310.36,256l67.37,64.43L449.38,281C468.87,270.23,468.87,241.77,449.38,231Z"/></svg>
+            </span>
+            <!--text-->
+            <span class="text-start">
+              <span class="block">Get it on</span>
+              <strong>Google Play</strong>
+            </span><!--end text-->
+          </span>
+        </a>
+        <!--end google play-->
+      </div><!-- end content text -->
+    </div>
+  </div>
+</div><!-- End download -->

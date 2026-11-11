@@ -1,0 +1,331 @@
+{%# Headers 组件 style 3（来源：statics/snippets/headers.liquid） %}
+<!-- Navbar -->
+<nav x-data="{ open: false }" class="flex flex-nowrap lg:flex-start items-center z-20 top-0 start-0 end-0 bg-base-100 overflow-y-auto max-h-screen lg:overflow-visible lg:max-h-full">
+  <div class="container mx-auto px-4 xl:max-w-6xl ">
+    <!-- mobile navigation -->
+    <div class="flex flex-row justify-between py-3 lg:hidden">
+      <!-- logo -->
+      <a class="flex items-center py-2 me-4 text-xl" href="#">
+        <span class="text-4xl font-semibold">Tail<span class="text-primary">Pro.</span></span>
+        <!-- <img class="max-w-full h-auto" src="{{ 'images/img/logo.png' | asset_url }}" alt="Logo dark"> -->
+      </a>
+      <!-- navbar toggler -->
+      <div class="end-0 flex items-center">
+        <!-- Mobile menu button-->
+        <button id="navbartoggle" type="button" class="inline-flex items-center justify-center text-base-content hover:text-primary-content opacity-80 focus:outline-none focus:ring-0" aria-controls="mobile-menu" @click="open = !open" aria-expanded="false" x-bind:aria-expanded="open.toString()">
+          <span class="sr-only">Mobile menu</span>
+          <svg x-description="Icon closed" x-state:on="Menu open" x-state:off="Menu closed" class="block h-8 w-8" :class="{ 'hidden': open, 'block': !(open) }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+
+          <svg x-description="Icon open" x-state:on="Menu open" x-state:off="Menu closed" class="hidden h-8 w-8" :class="{ 'block': open, 'hidden': !(open) }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="lg:hidden fixed w-full h-full inset-0 z-50" id="mobile-menu" x-description="Mobile menu" x-show="open" style="display: none;">
+      <!-- bg open -->
+      <span class="fixed bg-neutral bg-opacity-70 w-full h-full inset-x-0 top-0"></span>
+
+      <!-- Mobile navbar -->
+      <nav id="mobile-nav" class="flex flex-col end-0 w-64 fixed top-0 py-4 bg-base-100 h-full overflow-auto z-40" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" 
+          x-transition:enter="transform transition-transform duration-300" 
+          x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" 
+          x-transition:enter-end="translate-x-0" 
+          x-transition:leave="transform transition-transform duration-300" 
+          x-transition:leave-start="translate-x-0" 
+          x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
+        <div class="mb-auto">
+          <!--logo-->
+          <div class="mh-18 text-center px-12 mb-8">
+            <a href="#" class="flex relative">
+              <span class="text-4xl font-semibold px-4">Tail<span class="text-primary">Pro.</span></span>
+              <!-- <img src="{{ 'images/img/logo.png' | asset_url }}" class="max-w-full h-auto" alt="logo"> -->
+              <span class="absolute -bottom-4 transform translate-x-1/2 w-20 h-0 border-t-2 border-opacity-50 border-primary mx-auto"></span>
+            </a>
+          </div>
+          <!--navigation-->
+          <div class="mb-4">
+            <nav class="relative flex flex-wrap items-center justify-between">
+              <ul id="side-menu" class="w-full float-none flex flex-col">
+                <li class="relative">
+                  <a href="#" class="block py-3 px-4 hover:text-primary focus:text-primary">Home</a>
+                </li>
+
+                <li class="relative">
+                  <a href="#" class="block py-3 px-4 hover:text-primary focus:text-primary">About</a>
+                </li>
+
+                <!-- dropdown with submenu-->
+                <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @click.away="open = false">
+                  <a id="mobiledrop-04" class="block py-3 px-4 hover:text-primary focus:text-primary" href="javascript:;" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-primary': open }">
+                    Dropdown
+                    <!-- caret -->
+                    <span class="inline-block float-end mt-1 pt-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="transform transition duration-300" :class="{ 'rotate-0' : open , 'ltr:-rotate-90 rtl:rotate-90' : !open }" width=".8rem" height=".8rem" fill="currentColor" viewBox="0 0 512 512"><polyline points="112 184 256 328 400 184" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px"/></svg>
+                    </span>
+                  </a>
+
+                  <!-- dropdown menu -->
+                  <ul class="block rounded rounded-t-none top-full z-50 py-0.5 text-start bg-base-100 mb-4" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-04">
+                    <!--submenu-->
+                    <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @click.away="open = false">
+                      <a id="sidemenu-01" class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="javascript:;" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-primary': open }">
+                        Dropdown Item
+                        <!-- caret -->
+                        <span class="inline-block float-end mt-1 pt-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="transform transition duration-300" :class="{ 'rotate-0' : open , 'ltr:-rotate-90 rtl:rotate-90' : !open }" width=".8rem" height=".8rem" fill="currentColor" viewBox="0 0 512 512"><polyline points="112 184 256 328 400 184" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px"/></svg>
+                        </span>
+                      </a>
+
+                      <!--dropdown submenu-->
+                      <ul class="block rounded rounded-t-none top-full z-50 ms-3 py-0.5 text-start bg-base-100" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-01">
+                        <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown sub item</a></li>
+                        <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown sub item</a></li>
+                        <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown sub item</a></li>
+                        <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown sub item</a></li>
+                      </ul>
+                    </li><!--end submenu-->
+
+                    <!--submenu-->
+                    <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @click.away="open = false">
+                      <a id="sidemenu-02" class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="javascript:;" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-primary': open }">
+                        Dropdown item
+                        <!-- caret -->
+                        <span class="inline-block float-end mt-1 pt-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="transform transition duration-300" :class="{ 'rotate-0' : open , 'ltr:-rotate-90 rtl:rotate-90' : !open }" width=".8rem" height=".8rem" fill="currentColor" viewBox="0 0 512 512"><polyline points="112 184 256 328 400 184" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px"/></svg>
+                        </span>
+                      </a>
+
+                      <!--dropdown submenu-->
+                      <ul class="block rounded rounded-t-none top-full z-50 ms-3 py-0.5 text-start bg-base-100" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-02">
+                        <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown sub item</a></li>
+                        <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown sub item</a></li>
+                        <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown sub item</a></li>
+                      </ul>
+                    </li><!--end submenu-->
+
+                    <!--submenu-->
+                    <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @click.away="open = false">
+                      <a id="sidemenu-03" class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="javascript:;" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-primary': open }">
+                        Dropdown item
+                        <!-- caret -->
+                        <span class="inline-block float-end mt-1 pt-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="transform transition duration-300" :class="{ 'rotate-0' : open , 'ltr:-rotate-90 rtl:rotate-90' : !open }" width=".8rem" height=".8rem" fill="currentColor" viewBox="0 0 512 512"><polyline points="112 184 256 328 400 184" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px"/></svg>
+                        </span>
+                      </a>
+
+                      <!--dropdown submenu-->
+                      <ul class="block rounded rounded-t-none top-full z-50 ms-3 py-0.5 text-start bg-base-100" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-03">
+                        <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown sub item</a></li>
+                        <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown sub item</a></li>
+                      </ul>
+                    </li><!--end submenu-->
+                  </ul>
+                </li>
+
+                <li class="relative">
+                  <a href="#" class="block py-3 px-4 hover:text-primary focus:text-primary">Services</a>
+                </li>
+                <li class="relative">
+                  <a href="#" class="block py-3 px-4 hover:text-primary focus:text-primary">Support</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- copyright -->
+        <div class="mt-5 text-center">
+          <p>Copyright <a href="#">TailPro</a> - All right reserved</p>
+        </div>
+      </nav>
+    </div><!-- End Mobile menu -->
+
+    <!-- desktop menu -->
+    <div class="hidden lg:flex lg:flex-row lg:flex-nowrap lg:items-center lg:justify-between lg:mt-0" id="desktp-menu">
+      <!-- logo -->
+      <a class="hidden lg:flex items-center py-2 me-4 text-xl" href="#">
+        <span class="text-4xl font-semibold">Tail<span class="text-primary">Pro.</span></span>
+      </a>
+
+      <!-- menu -->
+      <ul class="flex flex-col lg:ms-auto mt-2 lg:flex-row lg:mt-0">
+        <!-- dropdown mega -->
+        <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @mouseleave="open = false">
+          <a id="dropdown-mega" class="group block py-3 lg:py-7 px-6 hover:text-primary focus:text-primary" href="javascript:;" @mouseenter="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-primary': open }">
+            <span class="absolute bottom-4 start-1/2 transform ltr:-translate-x-1/2 rtl:translate-x-1/2 w-6 h-0.5 bg-primary transition duration-700 ease-in-out opacity-0 group-hover:opacity-100" :class="{ 'opacity-100': open }"></span>
+            Home
+            <!-- caret -->
+            <span class="inline-block ms-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width=".8rem" height=".8rem" fill="currentColor" viewBox="0 0 512 512"><polyline points="112 184 256 328 400 184" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px"/></svg>
+            </span>
+          </a>
+
+          <!-- dropdown menu -->
+          <div class="block absolute start-1/2 end-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-primary rounded rounded-t-none top-full z-50 py-0.5 text-start bg-base-100 shadow-md" style="min-width: 38rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-mega" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
+            <div class="flex flex-wrap flex-row text-center">
+              <div class="flex-shrink w-full max-w-full md:w-1/2 px-4">
+                <div class="py-5">
+                  <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">
+                    <div class="self-center me-3 py-2 px-3 bg-primary text-neutral-content rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16">
+                        <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975l1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z"></path>
+                      </svg>
+                    </div>
+                    <div class="drop-text">
+                      <p class="fw-medium">Advertising</p>
+                    </div>
+                  </a>
+                  <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">
+                    <div class="self-center me-3 py-2 px-3 bg-primary text-neutral-content rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
+                        <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"></path>
+                      </svg>
+                    </div>
+                    <div class="drop-text">
+                      <p class="fw-medium">Branding</p>
+                    </div>
+                  </a>
+                  <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">
+                    <div class="self-center me-3 py-2 px-3 bg-primary text-neutral-content rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
+                        <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"></path>
+                      </svg>
+                    </div>
+                    <div class="drop-text">
+                      <p class="fw-medium">Creative</p>
+                    </div>
+                  </a>
+                  <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">
+                    <div class="self-center me-3 py-2 px-3 bg-primary text-neutral-content rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M13.5 3h-11a.5.5 0 0 0-.5.5V11h12V3.5a.5.5 0 0 0-.5-.5zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11z"></path>
+                        <path d="M0 12h16v.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5V12z"></path>
+                      </svg>
+                    </div>
+                    <div class="drop-text">
+                      <p class="fw-medium">Digital</p>
+                    </div>
+                  </a>
+                  <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">
+                    <div class="self-center me-3 py-2 px-3 bg-primary text-neutral-content rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette" viewBox="0 0 16 16">
+                        <path d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm4 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM5.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
+                        <path d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8zm-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7z"></path>
+                      </svg>
+                    </div>
+                    <div class="drop-text">
+                      <p class="fw-medium">Graphic</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="flex-shrink w-full max-w-full md:w-1/2 px-4 bg-base-200">
+                <div class="py-5">
+                  <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">
+                    <div class="self-center me-3 py-2 px-3 bg-primary text-neutral-content rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
+                        <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"></path>
+                      </svg>
+                    </div>
+                    <div class="drop-text">
+                      <p class="fw-medium">Marketing</p>
+                    </div>
+                  </a>
+                  <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">
+                    <div class="self-center me-3 py-2 px-3 bg-primary text-neutral-content rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-app-indicator" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1H5.5z"></path>
+                        <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                      </svg>
+                    </div>
+                    <div class="drop-text">
+                      <p class="fw-medium">Mobile App</p>
+                    </div>
+                  </a>
+                  <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">
+                    <div class="self-center me-3 py-2 px-3 bg-primary text-neutral-content rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                      </svg>
+                    </div>
+                    <div class="drop-text">
+                      <p class="fw-medium">SEO</p>
+                    </div>
+                  </a>
+                  <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">
+                    <div class="self-center me-3 py-2 px-3 bg-primary text-neutral-content rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path>
+                      </svg>
+                    </div>
+                    <div class="drop-text">
+                      <p class="fw-medium">Social Media</p>
+                    </div>
+                  </a>
+                  <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">
+                    <div class="self-center me-3 py-2 px-3 bg-primary text-neutral-content rounded">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe2" viewBox="0 0 16 16">
+                        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05c.362.184.763.349 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5h2.49zm1.4-2.741a12.344 12.344 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.612 13.612 0 0 1 7.5 10.91V8.5H4.51zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696c.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.963 6.963 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872A12.63 12.63 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008h2.49zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343a7.765 7.765 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"></path>
+                      </svg>
+                    </div>
+                    <div class="drop-text">
+                      <p class="fw-medium">Web Design</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="flex-shrink w-full px-4 text-center border-t border-base-300">
+                <div class="p-4 text-sm">Pre-build landing pages for your professional Agency.</div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="relative">
+          <a class="group block py-3 lg:py-7 px-6 hover:text-primary focus:text-primary" href="#">
+            <span class="absolute bottom-4 start-1/2 transform ltr:-translate-x-1/2 rtl:translate-x-1/2 w-6 h-0.5 bg-primary transition duration-700 ease-in-out opacity-0 group-hover:opacity-100"></span>
+            About
+          </a>
+        </li>
+
+        <!-- dropdown with submenu-->
+        <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @mouseleave="open = false">
+          <a id="dropdown-02" class="group block py-3 lg:py-7 px-6 hover:text-primary focus:text-primary" href="javascript:;" @mouseenter="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-primary': open }">
+            <span class="absolute bottom-4 start-1/2 transform ltr:-translate-x-1/2 rtl:translate-x-1/2 w-6 h-0.5 bg-primary transition duration-700 ease-in-out opacity-0 group-hover:opacity-100" :class="{ 'opacity-100': open }"></span>
+            Dropdown
+            <!-- caret -->
+            <span class="inline-block ms-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width=".8rem" height=".8rem" fill="currentColor" viewBox="0 0 512 512"><polyline points="112 184 256 328 400 184" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px"/></svg>
+            </span>
+          </a>
+          <!-- dropdown menu -->
+          <ul class="block absolute start-1/2 end-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-primary rounded rounded-t-none top-full z-50 py-0.5 text-start bg-base-100 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-02" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
+            <li class="relative">
+              <a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown item</a>
+            </li>
+            <li class="relative">
+              <a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown item</a>
+            </li>
+            <li class="relative">
+              <a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown item</a>
+            </li>
+            <li class="relative">
+              <a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-primary" href="#">Dropdown item</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="relative">
+          <a class="group block py-3 lg:py-7 px-6 hover:text-primary focus:text-primary" href="#">
+            <span class="absolute bottom-4 start-1/2 transform ltr:-translate-x-1/2 rtl:translate-x-1/2 w-6 h-0.5 bg-primary transition duration-700 ease-in-out opacity-0 group-hover:opacity-100"></span>
+            Support
+          </a>
+        </li>
+      </ul>
+    </div><!-- end desktop menu -->
+  </div>
+</nav><!-- End Navbar -->

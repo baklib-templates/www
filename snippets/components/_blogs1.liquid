@@ -1,0 +1,52 @@
+{%# Blogs 组件 style 1：三列卡片布局（带阴影）（来源：statics/snippets/blogs.liquid） %}
+{% assign fallback_image = 'images/img-min/blog_1.jpg' | asset_url %}
+{% query blog_pages from site.pages %}
+  {
+    "where": {
+      "template_name_eq": "page"
+    },
+    "order_by": ["-published_at"],
+    "limit": 3
+  }
+{% endquery %}
+<!-- blogs start -->
+<div id="blogs" class="relative pt-20 pb-8 md:pt-24 md:pb-12 bg-gray-50 dark:bg-gray-900 dark:bg-opacity-20">
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <!-- section header -->
+    <header class="text-center mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl leading-normal mb-2 font-bold text-gray-800 dark:text-gray-100"><span class="font-light">From the</span> Blog</h2>
+      <hr class="block w-12 h-0.5 mx-auto my-5 bg-primary-700 border-primary-700">
+    </header><!-- end section header -->
+
+    <!-- row -->
+    <div class="flex flex-wrap flex-row justify-center -mx-4">
+      {% for item in blog_pages %}
+      <div class="flex-shrink w-11/12 max-w-full md:w-1/2 lg:w-1/3 px-4">
+        <!-- Card -->
+        <div class="flex flex-col bg-white dark:bg-gray-800 mb-12 rounded overflow-hidden shadow wow fadeInUp" data-wow-duration="1s"{% if forloop.index0 > 0 %} data-wow-delay=".{{ forloop.index0 | times: 2 | minus: 1 }}s"{% endif %}>
+          <div class="relative overflow-hidden">
+            <a href="{{ item.path }}">
+              <div class="absolute inset-0 hover:bg-black opacity-0 transition duration-700 hover:opacity-20"></div>
+              <img class="max-w-full h-auto" src="{{ item.settings.thumb_image_url | default: site.settings.default_thumb_url | default: fallback_image }}" alt="{{ item.link_text }}">
+            </a>
+          </div>
+          <div class="py-6 px-8 flex-1">
+            <div class="mb-2">
+              <h3 class="text-2xl md:text-xl leading-normal md:leading-normal mb-4 font-semibold text-gray-800 dark:text-gray-200"><a href="{{ item.path }}" class="hover:text-primary-700 dark:hover:text-gray-100">{{ item.link_text | default: item.settings.title }}</a></h3>
+              <div class="text-gray-600">
+                <svg class="bi bi-calendar me-2 inline-block" width=".8rem" height=".8rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M14 0H2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" clip-rule="evenodd"></path>
+                    <path fill-rule="evenodd" d="M6.5 7a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                  </svg><span>{{ item.published_at | date: "%Y-%m-%d" }}</span>
+              </div>
+            </div>
+            <p class="text-gray-500">{{ item.settings.description | default: item.settings.content | strip_html | truncate: 100 }}</p>
+          </div>
+        </div><!-- End card -->
+      </div>
+      {% else %}
+      <p class="w-full px-4 py-8 text-center text-gray-500">{{ 'generic.empty' | t }}</p>
+      {% endfor %}
+    </div><!-- end row -->
+  </div>
+</div><!-- end blogs -->

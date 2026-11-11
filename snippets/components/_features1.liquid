@@ -1,0 +1,85 @@
+{%# Features 组件 style 1（来源：statics/snippets/features.liquid） %}
+<!-- Features start -->
+<div id="features" class="relative py-20 md:py-24 bg-base-100">
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <!-- row -->
+    <div class="flex flex-wrap flex-row -mx-4">
+      <!-- features images -->
+      <div class="flex-shrink max-w-full px-4 w-full lg:w-1/3 text-center lg:order-2">
+        <div class="px-16 md:px-24 lg:px-4 xl:px-16 mb-12 lg:mb-0">
+          <!-- Android potrait -->
+          <figure class="relative">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480.000000 906.000000">
+              <!-- Clip path image -->
+              <defs>
+                <clipPath id="svgf">
+                  <rect x="50" y="16.5" width="480" height="1066"/>
+                </clipPath>
+              </defs>
+              <!-- Phone screen -->
+              <image clip-path="url(#svgf)" xlink:href="{{ 'images/img-min/android-potrait.jpg' | asset_url }}"height="94%" width="100%" style="transform:translateY(15px);"></image>
+              <!-- Phone cover -->
+              <image xlink:href="{{ 'images/img-min/android-dark.png' | asset_url }}"height="100%" width="100%"></image>
+            </svg>
+          </figure>
+        </div>
+      </div>
+
+      <!-- features align left -->
+      <div class="flex-shrink max-w-full px-4 w-full lg:w-1/3 lg:order-1">
+        <div class="pb-6 relative pe-20 ps-0 mb-8 text-start lg:text-end">
+          <!-- icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="absolute end-0 start-auto text-primary" width="3.5rem" height="3.5rem" viewBox="0 0 512 512"><rect stroke="currentColor" x="48" y="48" width="176" height="176" rx="20" ry="20" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><rect stroke="currentColor" x="288" y="48" width="176" height="176" rx="20" ry="20" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><rect stroke="currentColor" x="48" y="288" width="176" height="176" rx="20" ry="20" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><rect stroke="currentColor" x="288" y="288" width="176" height="176" rx="20" ry="20" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
+          <!-- <i class="fas fa-shipping-fast absolute end-0 start-auto text-primary"></i> -->
+
+          <h3 class="text-xl leading-normal mb-2 font-semibold">Portfolio Lightgallery</h3>
+          <p class="text-base-content/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="pb-6 relative pe-20 ps-0 mb-8 text-start lg:text-end">
+          <!-- icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="absolute end-0 start-auto text-primary" width="3.5rem" height="3.5rem" viewBox="0 0 512 512"><path stroke="currentColor" d="M432,112V96a48.14,48.14,0,0,0-48-48H64A48.14,48.14,0,0,0,16,96V352a48.14,48.14,0,0,0,48,48H80" style="fill:none;stroke-linejoin:round;stroke-width:32px"/><rect stroke="currentColor" x="96" y="128" width="400" height="336" rx="45.99" ry="45.99" style="fill:none;stroke-linejoin:round;stroke-width:32px"/><ellipse stroke="currentColor" cx="372.92" cy="219.64" rx="30.77" ry="30.55" style="fill:none;stroke-miterlimit:10;stroke-width:32px"/><path stroke="currentColor" d="M342.15,372.17,255,285.78a30.93,30.93,0,0,0-42.18-1.21L96,387.64" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><path stroke="currentColor" d="M265.23,464,383.82,346.27a31,31,0,0,1,41.46-1.87L496,402.91" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
+          <!-- <i class="fas fa-chart-pie absolute end-0 start-auto text-primary"></i> -->
+
+          <h3 class="text-xl leading-normal mb-2 font-semibold">Swiper</h3>
+          <p class="text-base-content/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="pb-6 relative pe-20 ps-0 mb-8 text-start lg:text-end">
+          <!-- icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="absolute end-0 start-auto text-primary" width="3.5rem" height="3.5rem" viewBox="0 0 512 512"><rect stroke="currentColor" x="64" y="176" width="384" height="256" rx="28.87" ry="28.87" style="fill:none;stroke-linejoin:round;stroke-width:32px"/><line stroke="currentColor" x1="144" y1="80" x2="368" y2="80" style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"/><line stroke="currentColor" x1="112" y1="128" x2="400" y2="128" style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"/></svg>
+          <!-- <i class="fas fa-credit-card absolute end-0 start-auto text-primary"></i> -->
+
+          <h3 class="text-xl leading-normal mb-2 font-semibold">Isotope Magic Filter</h3>
+          <p class="text-base-content/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+
+      <!-- features align right -->
+      <div class="flex-shrink max-w-full px-4 w-full lg:w-1/3 lg:order-3">
+        <div class="pb-6 relative ps-20 pe-0 mb-8 text-start md:text-end lg:text-start">
+          <!-- icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="absolute start-0 end-auto text-primary" width="3.5rem" height="3.5rem" fill="currentColor" viewBox="0 0 512 512"><line x1="48" y1="112" x2="336" y2="112" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="192" y1="64" x2="192" y2="112" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><polyline points="272 448 368 224 464 448" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="301.5" y1="384" x2="434.5" y2="384" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><path d="M281.3,112S257,206,199,277,80,384,80,384" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><path d="M256,336s-35-27-72-75-56-85-56-85" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
+          <!-- <i class="fas fa-desktop absolute end-0 start-auto text-primary"></i> -->
+
+          <h3 class="text-xl leading-normal mb-2 font-semibold">Supported RTL</h3>
+          <p class="text-base-content/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="pb-6 relative ps-20 pe-0 mb-8 text-start md:text-end lg:text-start">
+          <!-- icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="absolute start-0 end-auto text-primary rtl-270" width="3.5rem" height="3.5rem" viewBox="0 0 512 512"><path stroke="currentColor" d="M461.81,53.81a4.4,4.4,0,0,0-3.3-3.39c-54.38-13.3-180,34.09-248.13,102.17a294.9,294.9,0,0,0-33.09,39.08c-21-1.9-42-.3-59.88,7.5-50.49,22.2-65.18,80.18-69.28,105.07a9,9,0,0,0,9.8,10.4l81.07-8.9a180.29,180.29,0,0,0,1.1,18.3,18.15,18.15,0,0,0,5.3,11.09l31.39,31.39a18.15,18.15,0,0,0,11.1,5.3,179.91,179.91,0,0,0,18.19,1.1l-8.89,81a9,9,0,0,0,10.39,9.79c24.9-4,83-18.69,105.07-69.17,7.8-17.9,9.4-38.79,7.6-59.69a293.91,293.91,0,0,0,39.19-33.09C427.82,233.76,474.91,110.9,461.81,53.81ZM298.66,213.67a42.7,42.7,0,1,1,60.38,0A42.65,42.65,0,0,1,298.66,213.67Z" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><path stroke="currentColor" d="M109.64,352a45.06,45.06,0,0,0-26.35,12.84C65.67,382.52,64,448,64,448s65.52-1.67,83.15-19.31A44.73,44.73,0,0,0,160,402.32" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
+          <!-- <i class="fas fa-shopping-bag absolute start-0 end-auto text-primary"></i> -->
+
+          <h3 class="text-xl leading-normal mb-2 font-semibold">Animated Particles</h3>
+          <p class="text-base-content/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="pb-6 relative ps-20 pe-0 mb-8 text-start md:text-end lg:text-start">
+          <!-- icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="absolute start-0 end-auto text-primary" width="3.5rem" height="3.5rem" fill="currentColor" viewBox="0 0 512 512"><path d="M330.7,352l77.72-192H356.9L303.74,284.07,265.93,160H226.32L185.74,284.07l-28.63-56.53L131.21,307l26.3,45h50.7l36.68-111.27,35,111.27Z"></path><path d="M48.79,286.09H80.44a93.39,93.39,0,0,0,25.62-3.21l8.18-25.19,22.88-70.39a55.75,55.75,0,0,0-6-7.82Q113.54,160,79.59,160H0V352H48.79Zm41.9-81.92q6.89,6.92,6.88,18.52t-6,18.53q-6.64,7.62-24.44,7.61H48.79V197.25H67.21q16.59,0,23.48,6.92ZM376.85,317.61l14.79-37.25h42.69l-20.26-56.51L439.41,160,512,352H458.47l-12.4-34.39Z"></path></svg>
+          <!-- <i class="fas fa-file-invoice absolute start-0 end-auto text-primary"></i> -->
+
+          <h3 class="text-xl leading-normal mb-2 font-semibold">Progressive Web App</h3>
+          <p class="text-base-content/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div><!-- end row -->
+  </div>
+</div><!-- End Features-->

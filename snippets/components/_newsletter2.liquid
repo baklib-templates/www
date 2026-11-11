@@ -1,0 +1,40 @@
+{%# Newsletter 组件 style 2（来源：statics/snippets/newsletter.liquid） %}
+<!-- Newsletter start -->
+<div id="newsletter" class="relative py-20 md:py-24 bg-base-100 jarallax">
+  <!-- background parallax -->
+  <img class="jarallax-img" src="{{ 'images/img/bg/bg3.jpg' | asset_url }}" alt="title">
+
+  <div class="container xl:max-w-6xl mx-auto px-4">
+    <div class="flex flex-wrap flex-row -mx-4 justify-center">
+      <div class="flex-shrink max-w-full px-4 w-11/12 sm:w-10/12 md:w-3/4">
+        <div class="flex flex-wrap flex-row">
+          <!-- img block -->
+          <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 lg:order-2 text-neutral-content bg-base-200">
+            <div class="z-10 py-12 text-center">
+              <img class="max-w-full h-auto w-full" src="{{ 'images/img-min/social.svg' | asset_url }}" alt="subcribe">
+            </div>
+          </div>
+
+          <!-- content block -->
+          <div class="flex-shrink max-w-full w-full lg:w-1/2 lg:order-1 my-auto bg-base-200">
+            <div class="p-12 md:p-16 bg-base-100 text-center">
+              <h3 class="text-2xl leading-normal mb-2 font-bold">Subcribe!</h3>
+              <p class="mb-4 text-base-content/70">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+              <form action="#">
+                <div class="mb-6">
+                  <input type="text" class="w-full leading-5 relative py-3 px-5 rounded text-base-content bg-base-100 border border-base-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0" placeholder="Full name" aria-label="full name" id="fullname" required>
+                </div>
+                <div class="mb-6">
+                  <input type="email" class="w-full leading-5 relative py-3 px-5 rounded text-base-content bg-base-100 border border-base-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0" placeholder="Email address" aria-label="email" id="exampleInputEmail1" required>
+                </div>
+                <div class="mb-6">
+                  <button type="submit" class="w-full py-3 px-5 inline-block text-center rounded-md leading-normal text-primary-content bg-primary border border-primary hover:text-primary-content hover:bg-primary hover:ring-0 hover:border-primary focus:bg-primary focus:border-primary focus:outline-none focus:ring-0">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- End newsletter -->
