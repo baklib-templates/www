@@ -5,6 +5,8 @@
 {% assign posted_feedback = page.visitor_posted_feedback | default: {} %}
 
 {% form_tag 'feedback', page: page %}
+<div x-data="{ selected: '{{ posted_feedback.emoji | default: "" | escape_once }}' }">
+<input type="hidden" name="{{ form.feedback_emoji_field_name }}" :value="selected">
   <section class="p-4 space-y-5">
     {% # 标题 %}
     {% if title %}
@@ -14,23 +16,16 @@
     {% # 反馈类型 %}
     <div
       class="flex flex-wrap gap-3 justify-center items-center"
-      x-data="{ selected: '{{ posted_feedback.emoji | default: "" | escape_once }}' }"
     >
       {% if message_enabled %}
         {% for useful_type in useful_types %}
-          <label
+          <button type="button" :aria-pressed="selected === '{{ useful_type.emoji |  escape_once }}'" @click="selected = '{{ useful_type.emoji |  escape_once }}'"
             class="inline-flex py-4 cursor-pointer badge badge-soft"
             :class="selected === '{{ useful_type.emoji |  escape_once }}' ? '!bg-primary/20 !border-primary/40' : ''"
           >
-            <input
-              type="radio"
-              name="{{ form.feedback_emoji_field_name }}"
-              value="{{ useful_type.emoji |  escape_once }}"
-              x-model="selected"
-              class="hidden">
             <span class="text-2xl">{{ useful_type.emoji }}</span>
             <span>{{ useful_type.label }}</span>
-          </label>
+          </button>
         {% endfor %}
       {% else %}
         {% for useful_type in useful_types %}
@@ -64,8 +59,9 @@
 
     {% # 提交按钮 %}
     <div class="flex justify-center space-x-4">
-      <button type="submit" class="btn btn-primary">{{ 'snippets.feedback_form.submit' | t }}</button>
+      <button type="submit" class="btn btn-primary" :disabled="selected === ''">{{ 'snippets.feedback_form.submit' | t }}</button>
       <button type="submit" formmethod="dialog" class="btn">{{ 'snippets.feedback_form.cancel' | t }}</button>
     </div>
   </section>
+</div>
 {% endform_tag %}
